@@ -74,6 +74,9 @@ else {
         }
 
     }
+    else{
+        $_SESSION['errors'] = array("Poef.");
+    }
 }
 
 
