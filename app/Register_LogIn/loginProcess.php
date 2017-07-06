@@ -27,7 +27,7 @@ else {
 
         if ($res) {
             $count = mysqli_num_rows($res);
-            $resArray = mysqli_fetch_array($res, MYSQL_ASSOC);
+            $resArray = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 
             if ($count == 1) {
@@ -60,7 +60,7 @@ else {
                     die();
                 } else {
 
-                    $_SESSION['errors'] = array("Your account has been deactivated. " .  $resArray);
+                    $_SESSION['errors'] = array("Your account has been deactivated. " .  $res);
 
 
                 }
