@@ -14,8 +14,8 @@
 <html>
 <head>
     <title>L'Elegance Beauty</title>
-    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
         body {
             background: url(SNuymfs.jpg) no-repeat center center fixed;
