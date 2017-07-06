@@ -60,7 +60,7 @@ else {
                     die();
                 } else {
 
-                    $_SESSION['errors'] = array("Your account has been deactivated. " .  $resArray[0]["userName"]);
+                    $_SESSION['errors'] = array("Your account has been deactivated. " .  $count);
 
 
                 }
