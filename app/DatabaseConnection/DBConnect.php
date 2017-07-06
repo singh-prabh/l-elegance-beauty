@@ -21,7 +21,7 @@ class DBConnect //create a class for make connection
         {
             $dbparts = parse_url($url);
 
-            $this->hostname = $dbparts['host'];
+            $this->host = $dbparts['host'];
             $this->username = $dbparts['user'];
             $this->password = $dbparts['pass'];
             $this->database = ltrim($dbparts['path'],'/');
