@@ -8,14 +8,14 @@
  */
 class User
 {
-    private $userID;
-    private $userName;
-    private $userSurname;
-    private $userContact;
-    private $userEmail;
-    private $userPassword;
-    private $activated;
-    private $admin;
+    public $userID;
+    public $userName;
+    public $userSurname;
+    public $userContact;
+    public $userEmail;
+    public $userPassword;
+    public $activated;
+    public $admin;
 
     public function __construct()
     {

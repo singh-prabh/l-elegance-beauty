@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
         body {
-            background: url(SNuymfs.jpg) no-repeat center center fixed;
+            background: url(../Images/SNuymfs.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -44,9 +44,30 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-lock"></span> Login</div>
+                    <span class="glyphicon glyphicon-lock"></span> Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+                    <form action = "registerProcess.php" method= "post" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-3 control-label">
+                                Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSurname" class="col-sm-3 control-label">
+                                Surname</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputSurname" placeholder="Surname" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputContact" class="col-sm-3 control-label">
+                                Contact Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputContact" placeholder="Contact Number" required>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-3 control-label">
                                 Email</label>
@@ -61,28 +82,17 @@
                                 <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"/>
-                                        Remember me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-sm btn-login">
-                                    Sign in</button>
+                                    Register</button>
                                 <button type="reset" class="btn btn-default btn-sm">
                                     Reset</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="panel-footer">
-                    Not Registred? <a href="app/Register&LogIn/register.php">Register here</a></div>
+
             </div>
         </div>
     </div>

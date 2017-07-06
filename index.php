@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
         body {
-            background: url(SNuymfs.jpg) no-repeat center center fixed;
+            background: url(app/Images/SNuymfs.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -43,29 +43,19 @@
                     <div class="panel-heading">
                         <span class="glyphicon glyphicon-lock"></span> Login</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form">
+                        <form action = "app/Register&LogIn/loginProcess.php" method= "post" class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">
                                     Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="inputEmail3" name ="inputEmail" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-3 control-label">
                                     Password</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-3 col-sm-9">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"/>
-                                            Remember me
-                                        </label>
-                                    </div>
+                                    <input type="password" class="form-control" id="inputPassword3" name="inputPassword" placeholder="Password" required>
                                 </div>
                             </div>
                             <div class="form-group last">
