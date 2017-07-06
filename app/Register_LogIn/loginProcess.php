@@ -34,8 +34,8 @@ else {
 
                 $userOne->userID = $resArray["id_user"];
                 echo $userOne->userID;
-                $userOne->userName = $resArray["userName"];
-                echo $userOne->userName;
+                $userOne->userName = $resArray[0]["userName"];
+                echo "Username: " . $resArray[0]["userName"];
                 $userOne->userSurname = $resArray["userSurname"];
                 $userOne->userContact = $resArray["userContact"];
                 $userOne->userEmail = $resArray["userEmail"];
