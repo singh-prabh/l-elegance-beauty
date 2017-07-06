@@ -82,6 +82,11 @@ else {
         }
 
     }
+    else {
+        //show error to login page
+        $_SESSION['errors'] = array("Poef");
+
+    }
 }
 
 ?>
