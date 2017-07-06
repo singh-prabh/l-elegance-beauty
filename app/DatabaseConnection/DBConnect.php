@@ -10,14 +10,23 @@ class DBConnect //create a class for make connection
 {
     var $host="localhost";
     var $username="root";    // specify the sever details for mysql
-    Var $password="Mty011gp";
+    var $password="Mty011gp";
     var $database="beauty";
     var $myconn;
 
     function connectToDatabase() // create a function for connect database
     {
+        $url = getenv('JAWSDB_URL');
+        if($url)
+        {
+            $dbparts = parse_url($url);
 
-        $conn= mysqli_connect($this->host, $this->username, $this->password);
+            $this->hostname = $dbparts['host'];
+            $this->username = $dbparts['user'];
+            $this->password = $dbparts['pass'];
+            $this->database = ltrim($dbparts['path'],'/');
+        }
+        $conn= mysqli_connect($this->host,$this->username,$this->password);
 
         if(!$conn)// testing the connection
         {
