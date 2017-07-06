@@ -32,7 +32,6 @@ class DBConnect //create a class for make connection
         {
             return false;
         }
-
         else
         {
 
