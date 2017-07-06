@@ -33,9 +33,7 @@ else {
             if ($count == 1) {
 
                 $userOne->userID = $resArray["id_user"];
-                echo $userOne->userID;
-                $userOne->userName = $resArray[0]["userName"];
-                echo "Username: " . $resArray[0]["userName"];
+                $userOne->userName = $resArray["userName"];
                 $userOne->userSurname = $resArray["userSurname"];
                 $userOne->userContact = $resArray["userContact"];
                 $userOne->userEmail = $resArray["userEmail"];
@@ -62,7 +60,7 @@ else {
                     die();
                 } else {
 
-                    $_SESSION['errors'] = array("Your account has been deactivated. " .  $resArray["userName"]);
+                    $_SESSION['errors'] = array("Your account has been deactivated. " .  $resArray[0]["userName"]);
 
 
                 }
