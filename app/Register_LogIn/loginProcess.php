@@ -41,7 +41,7 @@ else {
                 $userOne->activated = $resArray["activated"];
                 $userOne->admin = $resArray["admin"];
 
-                if ($userOne->activated && $userOne->admin) {
+                if ($userOne->activated==1 && $userOne->admin==1) {
 
                     $isError =false;
                     $cookie_name = "account";
@@ -50,7 +50,7 @@ else {
                     header('Location: ' . 'app/AdminPages/Home.php'); /* Redirect browser */
                     die();
 
-                } else if ($userOne->activated == true && $userOne->admin == false) {
+                } else if ($userOne->activated == 1 && $userOne->admin == 0) {
 
 
                     $cookie_name = "account";
