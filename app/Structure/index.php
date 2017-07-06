@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>L'Elegance Beauty</title>
-    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
 </head>
 <body>
 <?php
@@ -13,7 +13,7 @@ include 'app/Structure/header.php'
 
     <div class="jumbotron">
 
-            <a class="btn btn-lg btn-primary" href="app/Structure/app.php" role="button">View navbar docs »</a>
+            <a class="btn btn-lg btn-primary" href="app.php" role="button">View navbar docs »</a>
         </p>
     </div>
 
@@ -21,7 +21,7 @@ include 'app/Structure/header.php'
 <?php
 include 'app/Structure/footer.php'
 ?>
-<script src="app/packages/jquery/jquery-3.2.1.min.js"></script>
-<script src="app/packages/bootstrap/js/bootstrap.min.js"></script>
+<script src="../packages/jquery/jquery-3.2.1.min.js"></script>
+<script src="../packages/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

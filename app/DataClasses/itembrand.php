@@ -9,4 +9,29 @@
 class itembrand
 {
 
+    private $itembrandID;
+    private $itembrandName;
+
+
+    public function __construct()
+    {
+
+    }
+
+    //get
+    public function __getItembrandID($itembrandID){
+        return $this->$itembrandID;
+    }
+
+    public function __getItembrandName($itembrandName){
+        return $this->$itembrandName;
+    }
+
+    public function __setItembrandID($itembrandID, $val){
+        return $this->$itembrandID=$val;
+    }
+
+    public function __setItembrandName($itembrandName, $val){
+        return $this->$itembrandName=$val;
+    }
 }

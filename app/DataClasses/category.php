@@ -8,5 +8,30 @@
  */
 class category
 {
+    private $categoryID;
+    private $categoryName;
+
+
+    public function __construct()
+    {
+
+    }
+
+    //get
+    public function __getCategoryID($categoryID){
+        return $this->$categoryID;
+    }
+
+    public function __getCategoryName($categoryName){
+        return $this->$categoryName;
+    }
+
+    public function __setCategoryID($categoryID, $val){
+        return $this->$categoryID=$val;
+    }
+
+    public function __setCategoryName($categoryName, $val){
+        return $this->$categoryName=$val;
+    }
 
 }
