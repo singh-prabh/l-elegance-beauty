@@ -60,7 +60,7 @@ else {
                     die();
                 } else {
 
-                    $_SESSION['errors'] = array("Your account has been deactivated. " . $userOne->activated);
+                    $_SESSION['errors'] = array("Your account has been deactivated. " . $sqlSelect);
 
 
                 }
