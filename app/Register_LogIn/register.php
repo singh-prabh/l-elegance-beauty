@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Margo
- * Date: 2017-07-06
- * Time: 12:29 PM
- */
-?>
-<?php
+require '../Register_LogIn/registerProcess.php';
 
 ?>
 
@@ -46,40 +39,40 @@
                 <div class="panel-heading">
                     <span class="glyphicon glyphicon-lock"></span> Register</div>
                 <div class="panel-body">
-                    <form action = "registerProcess.php" method= "post" class="form-horizontal" role="form">
+                    <form action = "register.php" method= "post" class="form-horizontal" role="form">
                         <div class="form-group">
                             <label for="inputName" class="col-sm-3 control-label">
                                 Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+                                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputSurname" class="col-sm-3 control-label">
                                 Surname</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputSurname" placeholder="Surname" required>
+                                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Surname" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputContact" class="col-sm-3 control-label">
                                 Contact Number</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputContact" placeholder="Contact Number" required>
+                                <input type="text" class="form-control" id="inputContact" name="inputContact" placeholder="Contact Number" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-3 control-label">
                                 Email</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                                <input type="email" class="form-control" id="inputEmail3" name="inputEmail" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-3 control-label">
                                 Password</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                                <input type="password" class="form-control" id="inputPassword3" name="inputPassword" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group last">
@@ -88,6 +81,21 @@
                                     Register</button>
                                 <button type="reset" class="btn btn-default btn-sm">
                                     Reset</button>
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <?php if (isset($_SESSION['errors'])): ?>
+                                    <div class="form-errors" style="color: red;">
+                                        </br>
+                                        <?php foreach($_SESSION['errors'] as $error): ?>
+                                            <p><?php echo $error ?></p>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif;
+
+                                ?>
+
                             </div>
                         </div>
                     </form>

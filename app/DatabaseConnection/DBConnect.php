@@ -17,7 +17,7 @@ class DBConnect //create a class for make connection
     function connectToDatabase() // create a function for connect database
     {
 
-        $conn= mysqli_connect($this->host,$this->username,$this->password);
+        $conn= mysqli_connect($this->host, $this->username, $this->password);
 
         if(!$conn)// testing the connection
         {
@@ -52,6 +52,16 @@ class DBConnect //create a class for make connection
 
         echo "Connection closed";
     }
+
+    //insert
+    function insertUser($user){
+       // $sqlSelect = "INSERT INTO user (userName, userSurname, userEmail,employeeUsername, employeePassword, AdminPrivileges, activated )
+            //    VALUES(employeeName_, employeeSurname_, employeeEmail_ ,employeeUsername_, employeePassword_, AdminPrivileges_, activated_ );
+        $res = mysqli_query($dbOne->myconn, $sqlSelect);
+    }
+    //update
+
+    //delete
 
 }
 ?>

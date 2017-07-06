@@ -1,4 +1,5 @@
 <?php
+require 'app/Register_LogIn/loginProcess.php';
 
 ?>
 
@@ -43,7 +44,7 @@
                     <div class="panel-heading">
                         <span class="glyphicon glyphicon-lock"></span> Login</div>
                     <div class="panel-body">
-                        <form action = "app/Register&LogIn/loginProcess.php" method= "post" class="form-horizontal" role="form">
+                        <form action = "index.php" method= "post" class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">
                                     Email</label>
@@ -66,10 +67,23 @@
                                         Reset</button>
                                 </div>
                             </div>
+                            <div class="form-group last">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <?php if (isset($_SESSION['errors'])): ?>
+                                        <div class="form-errors" style="color: red;">
+                                            </br>
+                                            <?php foreach($_SESSION['errors'] as $error): ?>
+                                                <p><?php echo $error ?></p>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="panel-footer">
-                        Not Registred? <a href="app/Register&LogIn/register.php">Register here</a></div>
+                        Not Registred? <a href="app/Register_LogIn/register.php">Register here</a></div>
                 </div>
             </div>
         </div>
