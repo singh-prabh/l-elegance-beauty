@@ -9,8 +9,8 @@
 class shoppingcart
 {
 
-    private $shoppingcartID;
-    private $userID;
+    public $shoppingcartID;
+    public $userID;
 
 
     public function __construct()

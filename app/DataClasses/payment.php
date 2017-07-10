@@ -9,11 +9,11 @@
 class payment
 {
 
-    private $paymentID;
-    private $orderID;
-    private $paymentType;
-    private $paymentAccount;
-    private $completed;
+    public $paymentID;
+    public $orderID;
+    public $paymentType;
+    public $paymentAccount;
+    public $completed;
 
 
     public function __construct()

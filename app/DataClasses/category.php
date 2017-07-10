@@ -8,8 +8,8 @@
  */
 class category
 {
-    private $categoryID;
-    private $categoryName;
+    public $categoryID;
+    public $categoryName;
 
 
     public function __construct()

@@ -9,13 +9,13 @@
 class item
 {
 
-    private $itemID;
-    private $itemName;
-    private $itemDescription;
-    private $itemPrice;
-    private $categoryID;
-    private $itembrandID;
-    private $itemImage;
+    public $itemID;
+    public $itemName;
+    public $itemDescription;
+    public $itemPrice;
+    public $categoryID;
+    public $itembrandID;
+    public $itemImage;
 
 
     public function __construct()

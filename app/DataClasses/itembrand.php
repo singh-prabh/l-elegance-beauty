@@ -9,8 +9,8 @@
 class itembrand
 {
 
-    private $itembrandID;
-    private $itembrandName;
+    public $itembrandID;
+    public $itembrandName;
 
 
     public function __construct()

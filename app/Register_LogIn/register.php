@@ -89,7 +89,16 @@ require '../Register_LogIn/registerProcess.php';
                                     <div class="form-errors" style="color: red;">
                                         </br>
                                         <?php foreach($_SESSION['errors'] as $error): ?>
-                                            <p><?php echo $error ?></p>
+                                            <p><?php if($error=="true")
+                                                    {
+                                                        echo "<script type='text/javascript'>alert('You have registered successfully, now you can log in!')
+                                                                window.location = '../../index.php';
+                                                              </script>";
+
+                                                    }
+                                                    else {
+                                                        echo $error;
+                                                    } ?></p>
                                         <?php endforeach; ?>
                                     </div>
                                 <?php endif;

@@ -9,9 +9,9 @@
 class order
 {
 
-    private $orderID;
-    private $userID;
-    private $statusCompleted;
+    public $orderID;
+    public $userID;
+    public $statusCompleted;
 
     public function __construct()
     {

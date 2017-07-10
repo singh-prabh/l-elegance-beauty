@@ -9,11 +9,11 @@
 class service
 {
 
-    private $serviceID;
-    private $serviceName;
-    private $serviceDescription;
-    private $servicePrice;
-    private $categoryID;
+    public $serviceID;
+    public $serviceName;
+    public $serviceDescription;
+    public $servicePrice;
+    public $categoryID;
 
 
 

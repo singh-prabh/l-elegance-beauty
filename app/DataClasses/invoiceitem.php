@@ -8,11 +8,11 @@
  */
 class invoiceitem
 {
-    private $invoiceitemID;
-    private $orderID;
-    private $itemID;
-    private $quantity;
-    private $price;
+    public $invoiceitemID;
+    public $orderID;
+    public $itemID;
+    public $quantity;
+    public $price;
 
 
     public function __construct()

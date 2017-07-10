@@ -13,6 +13,7 @@ else {
 
     session_start();
     include "app/DataClasses/user.php";
+    include "app/DataClasses/logintimestamp.php";
     include "app/DatabaseConnection/DBConnect.php";
     $dbOne = new DBConnect();
     $userOne = new user();
@@ -40,27 +41,40 @@ else {
                 $userOne->userPassword = $resArray["userPassword"];
                 $userOne->activated = $resArray["activated"];
                 $userOne->admin = $resArray["admin"];
-
+                $logintimestamp = new logintimestamp();
+                $logintimestamp->userID= $userOne->userID;
+                date_default_timezone_set('Africa/Johannesburg');
                 if ($userOne->activated==1 && $userOne->admin==1) {
 
-                    $isError =false;
-                    $cookie_name = "account";
-                    $cookie_value = $userOne;
-                    setcookie($cookie_name, serialize($cookie_value), 0, "/");
-                    header('Location: ' . 'app/AdminPages/Home.php'); /* Redirect browser */
-                    die();
+                    $logintimestamp->timestamp= date('Y-m-d H:i:s');
+
+                    $insertLogOn = $dbOne->insertLogintimestamp($logintimestamp);
+                    if($insertLogOn){
+                        $cookie_name = "account";
+                        $cookie_value = $userOne;
+                        setcookie($cookie_name, serialize($cookie_value), 0, "/");
+                        header('Location: ' . 'app/AdminPages/Home.php'); /* Redirect browser */
+                        die();
+                    }
+
+
 
                 } else if ($userOne->activated == 1 && $userOne->admin == 0) {
 
+                    $logintimestamp->timestamp= date('Y-m-d H:i:s');
 
-                    $cookie_name = "account";
-                    $cookie_value = $userOne;
-                    setcookie($cookie_name, $cookie_value, 0, "/");
-                    header('Location: ' . 'app/UserPages/Home.php'); /* Redirect browser */
-                    die();
+                    $insertLogOn = $dbOne->insertLogintimestamp($logintimestamp);
+                    if($insertLogOn){
+                        $cookie_name = "account";
+                        $cookie_value = $userOne;
+                        setcookie($cookie_name, $cookie_value, 0, "/");
+                        header('Location: ' . 'app/UserPages/Home.php'); /* Redirect browser */
+                        die();
+                    }
+
                 } else {
 
-                    $_SESSION['errors'] = array("Your account has been deactivated. " .  $res);
+                    $_SESSION['errors'] = array("Your account has been deactivated. "   );
 
 
                 }
@@ -75,7 +89,7 @@ else {
 
     }
     else{
-        $_SESSION['errors'] = array("Poef.");
+
     }
 }
 

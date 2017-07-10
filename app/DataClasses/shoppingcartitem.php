@@ -9,10 +9,10 @@
 class shoppingcartitem
 {
 
-    private $shoppingcartitemID;
-    private $shoppingcartID;
-    private $itemID;
-    private $quantity;
+    public $shoppingcartitemID;
+    public $shoppingcartID;
+    public $itemID;
+    public $quantity;
 
 
 
