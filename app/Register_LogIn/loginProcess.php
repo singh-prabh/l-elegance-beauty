@@ -67,7 +67,7 @@ else {
                     if($insertLogOn){
                         $cookie_name = "account";
                         $cookie_value = $userOne;
-                        setcookie($cookie_name, $cookie_value, 0, "/");
+                        setcookie($cookie_name, serialize($cookie_value), 0, "/");
                         header('Location: ' . 'app/UserPages/Home.php'); /* Redirect browser */
                         die();
                     }

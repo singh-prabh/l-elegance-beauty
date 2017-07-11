@@ -1,4 +1,11 @@
+<?php
+if(!isset($_COOKIE["account"])) {
+    header('Location: ' . '../../index.php'); /* Redirect browser */
+    die();
+} else {
 
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,6 +131,7 @@ include '../Structure/header.php'
 <div>
     <p class="form-title">
         Welcome to L'Elegance Beauty</p>
+
 </div>
 
 <div class="container marketing">

@@ -1,4 +1,12 @@
 <?php
+if(!isset($_COOKIE["account"])) {
+    header('Location: ' . '../../index.php'); /* Redirect browser */
+    die();
+} else {
+
+}
+?>
+<?php
 include "../DataClasses/service.php";
 include "../DatabaseConnection/DBConnect.php";
 ?>
@@ -74,7 +82,7 @@ include '../Structure/header.php'
             <th>Treatment Name</th>
             <th>Treatment Description</th>
             <th>Treatment Price (ZAR)</th>
-            <th>Treatment category</th>
+            <th>Treatment Category</th>
 
         </tr>
         <?php

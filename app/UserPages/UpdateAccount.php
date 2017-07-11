@@ -78,46 +78,43 @@ include '../Structure/header.php'
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-offset-2 col-lg-8 col-sm-12">
-            <div style= "text-align: center;" ><b>You are logged in as the following user</b></div>
-            <table>
+<div class="container" style= "padding-right: 140px; padding-left: 140px;">
+    <div style= "text-align: center;" ><b>You are logged in as the following user</b></div>
+    <table>
 
-                <tr>
-                    <td><b>Name:</b></td>
-                    <?php
-                    echo "<td>$user->userName</td>";
-                    ?>
-                </tr>
-                <tr>
-                    <td><b>Surname:</b></td>
-                    <?php
-                    echo "<td>$user->userSurname</td>";
-                    ?>
+        <tr>
+            <td><b>Name:</b></td>
+            <?php
+            echo "<td>$user->userName</td>";
+            ?>
+        </tr>
+        <tr>
+            <td><b>Surname:</b></td>
+            <?php
+            echo "<td>$user->userSurname</td>";
+            ?>
 
 
-                </tr>
-                <tr>
-                    <td><b>Contact Number:</b></td>
-                    <?php
-                    echo "<td>$user->userContact</td>";
-                    ?>
+        </tr>
+        <tr>
+            <td><b>Contact Number:</b></td>
+            <?php
+            echo "<td>$user->userContact</td>";
+            ?>
 
-                </tr>
-                <tr>
-                    <td><b>Email:</td>
-                    <?php
-                    echo "<td>$user->userEmail</b></td>";
-                    ?>
+        </tr>
+        <tr>
+            <td><b>Email:</td>
+            <?php
+            echo "<td>$user->userEmail</b></td>";
+            ?>
 
-                </tr>
+        </tr>
 
-            </table>
-            <br/>
-            <button type="submit" class="btn btn-sm btn-login"><b>Update Account</b></button>
-        </div>
-    </div>
+    </table>
+    <br/>
+    <button type="submit" class="btn btn-sm btn-login"><b>Update Account</b></button>
+
 </div><!-- /.row -->
 
 <?php
