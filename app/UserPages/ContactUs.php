@@ -2,7 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>L'Elegance Beauty-AboutUs</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>L'Elegance Beauty-ContactUs</title>
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
@@ -11,7 +16,7 @@
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
-            padding-top: 0px;
+            padding-top: 30px;
         }
 
 
@@ -27,10 +32,24 @@
             margin-top: 5%;
             text-transform: uppercase;
             letter-spacing: 4px;
-            padding-top: 20px;
+            padding-top: 0px;
             padding-bottom: 20px;
         }
 
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
         }
 
     </style>
@@ -46,7 +65,33 @@ include '../Structure/header.php'
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
 <div class="container marketing">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Telephone Number</th>
+            <th>Position</th>
+        </tr>
+        <tr>
+            <td>Lisle</td>
+            <td>Weiermans</td>
+            <td>lisleweiermans@gmail.com</td>
+            <td>082-805-5501</td>
+            <td>Beauty Therapist and Owner</td>
 
+
+        </tr>
+        <tr>
+            <td>Margo</td>
+            <td>Henning</td>
+            <td>hmargo.mh@gmail.com</td>
+            <td>076-909-2776</td>
+            <td>Website Developer and Tech Support</td>
+
+        </tr>
+
+    </table>
 
 </div><!-- /.row -->
 

@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>L'Elegance Beauty-AboutUs</title>
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
@@ -11,7 +16,7 @@
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
-            padding-top: 20px;
+            padding-top: 30px;
         }
 
 
@@ -42,7 +47,7 @@
             font-size: medium;
         }
 
-        }
+
 
     </style>
 </head>
@@ -58,19 +63,19 @@ include '../Structure/header.php'
 
 <div class="container">
 
-    <div class="aboutus">
-L’Elegance Beauty is a local business that is in the industry of selling beauty products as well as beauty services.
+    <div class="aboutus" >
+L’Elegance Beauty is a local business that is in the industry of selling beauty products as well as beauty services.<br/>
 
-L’Elegance Beauty opened their doors for the first time in 2003 by the owner and beauty therapist, Lisle Weiermans.
+L’Elegance Beauty opened their doors for the first time in 2003 by the owner and beauty therapist, Lisle Weiermans.<br/>
         Lisle still runs her business herself successfully till this day.<br/>
-Lisle did a three-year qualification and passed her international diploma.
-After getting her qualifications, she gained a few years of experience and then decided to start her business.
-She describes herself as having a passion for being practical and applying her skills in a practical manner.
+Lisle did a three-year qualification and passed her international diploma.<br/>
+After getting her qualifications, she gained a few years of experience and then decided to start her business.<br/>
+She describes herself as having a passion for being practical and applying her skills in a practical manner.<br/>
 
-Lisle has been the only therapist for her business for the last 14 years and her clients are very special to her and she appreciates their loyalty.
+Lisle has been the only therapist for her business for the last 14 years and her clients are very special to her and she appreciates their loyalty.<br/>
 
 After talking to one of her clients it is clear that Lisle’s passion for her business and clients goes far beyond just giving them a beauty treatment,
-she makes each client feel special and refreshed after their treatment.
+she makes each client feel special and refreshed after their treatment.<br/>
 
     </div>
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>L'Elegance Beauty-AboutUs</title>
+    <title>L'Elegance Beauty-Products</title>
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
@@ -11,7 +11,7 @@
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
-            padding-top: 0px;
+            padding-top: 30px;
         }
 
 
@@ -30,7 +30,7 @@
             margin-top: 5%;
             text-transform: uppercase;
             letter-spacing: 5px;
-            padding-top: 20px;
+            padding-top: 0px;
             padding-bottom: 20px;
         }
 
