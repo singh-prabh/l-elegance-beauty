@@ -197,14 +197,14 @@ class DBConnect //create a class for make connection
     //update
     function updateUser(user $user){
         $sqlUpdate = "UPDATE user 
-        SET userName = $user->userName,
-            userSurname= $user->userSurname,
-            userContact= $user->userContact,
-            userEmail= $user->userEmail,
-            userPassword= $user->userPassword,
-            activated= $user->activated,
-            admin = $user->admin
-        WHERE id_user = $user->userID";
+        SET userName = '".$user->userName."',
+            userSurname='". $user->userSurname."',
+            userContact= '".$user->userContact."',
+            userEmail= '".$user->userEmail."',
+            userPassword= '".$user->userPassword."',
+            activated= '".$user->activated."',
+            admin = '".$user->admin."'
+        WHERE id_user ='". $user->userID."'";
 
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
@@ -217,8 +217,8 @@ class DBConnect //create a class for make connection
 
     function updateShoppingCart(shoppingcart $shoppingcart){
         $sqlUpdate = "UPDATE shoppingcart 
-        SET id_user =$shoppingcart->userID
-        WHERE id_shoppingcart = $shoppingcart->shoppingcartID";
+        SET id_user ='".$shoppingcart->userID."'
+        WHERE id_shoppingcart = '".$shoppingcart->shoppingcartID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -230,10 +230,10 @@ class DBConnect //create a class for make connection
 
     function updateShoppingCartItem(shoppingcartitem $sci){
         $sqlUpdate = "UPDATE shoppingcartitem 
-        SET id_item = $sci->itemID, 
-        id_shoppingcart =$sci->shoppingcartID,
-        quantity = $sci->quantity
-        WHERE id_shoppingcartitem = $sci->shoppingcartitemID";
+        SET id_item = '".$sci->itemID."', 
+        id_shoppingcart ='".$sci->shoppingcartID."',
+        quantity = '".$sci->quantity."'
+        WHERE id_shoppingcartitem = '".$sci->shoppingcartitemID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -245,13 +245,13 @@ class DBConnect //create a class for make connection
 
     function updateItem(item $item){
         $sqlUpdate = "UPDATE item 
-        SET itemName = $item->itemName , 
-        itemDescription =$item->itemDescription,
-        itemPrice = $item->itemPrice, 
-        id_category =$item->categoryID , 
-        id_itembrand = $item->itembrandID, 
-        itemImage =$item->itemImage 
-        WHERE id_item = $item->itemID";
+        SET itemName = '".$item->itemName."' , 
+        itemDescription ='".$item->itemDescription."',
+        itemPrice = '".$item->itemPrice."', 
+        id_category ='".$item->categoryID ."', 
+        id_itembrand = '".$item->itembrandID."', 
+        itemImage ='".$item->itemImage."' 
+        WHERE id_item = '".$item->itemID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -263,8 +263,8 @@ class DBConnect //create a class for make connection
 
     function updateItemBrand(itembrand $itembrand){
         $sqlUpdate = "UPDATE itembrand 
-        SET itembrandName = $itembrand->itembrandName
-        WHERE id_itembrand = $itembrand->itembrandID";
+        SET itembrandName = '".$itembrand->itembrandName."'
+        WHERE id_itembrand = '".$itembrand->itembrandID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -276,8 +276,8 @@ class DBConnect //create a class for make connection
 
     function updateCategory(category $category){
         $sqlUpdate = "UPDATE category 
-        SET categoryName =$category->categoryName
-        WHERE id_category= $category->categoryID";
+        SET categoryName ='".$category->categoryName."'
+        WHERE id_category= '".$category->categoryID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -289,11 +289,11 @@ class DBConnect //create a class for make connection
 
     function updateInvoiceItem(invoiceitem $ii){
         $sqlUpdate = "UPDATE invoiceitem 
-        SET id_order= $ii->orderID, 
-        id_item =$ii->itemID, 
-        quantity=$ii->quantity, 
-        price= $ii->price
-        WHERE id_invoiceitem = $ii->invoiceitemID";
+        SET id_order=  '".$ii->orderID."', 
+        id_item = '".$ii->itemID."', 
+        quantity= '".$ii->quantity."', 
+        price=  '".$ii->price."'
+        WHERE id_invoiceitem = '". $ii->invoiceitemID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -305,10 +305,10 @@ class DBConnect //create a class for make connection
 
     function updateOrder(order $order){
         $sqlUpdate = "UPDATE order 
-        SET id_user =$order->userID, 
-        statusCompleted =$order->statusCompleted,
-        orderDate =$order->orderDate
-        WHERE id_order= $order->orderID";
+        SET id_user ='".$order->userID."', 
+        statusCompleted ='".$order->statusCompleted."',
+        orderDate ='".$order->orderDate."'
+        WHERE id_order= '".$order->orderID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -320,11 +320,11 @@ class DBConnect //create a class for make connection
 
     function updatePayment(payment $payment){
         $sqlUpdate = "UPDATE payment 
-        SET id_order= $payment->orderID, 
-        paymentType =$payment->paymentType,
-        paymentAccount =$payment->paymentAccount, 
-        completed = $payment->completed
-        WHERE id_payment= $payment->paymentID";
+        SET id_order= '".$payment->orderID."' , 
+        paymentType ='".$payment->paymentType."' ,
+        paymentAccount ='".$payment->paymentAccount."' , 
+        completed = '".$payment->completed."' 
+        WHERE id_payment= '".$payment->paymentID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -336,11 +336,11 @@ class DBConnect //create a class for make connection
 
     function updateService(service $service){
         $sqlUpdate = "UPDATE service 
-        SET serviceName=$service->serviceName , 
-        serviceDescription=$service->serviceDescription ,
-        servicePrice=$service->servicePrice , 
-        id_category= $service->categoryID
-       WHERE id_service= $service->serviceID";
+        SET serviceName='".$service->serviceName."' , 
+        serviceDescription='".$service->serviceDescription."' ,
+        servicePrice='".$service->servicePrice ."', 
+        id_category= '".$service->categoryID."'
+       WHERE id_service= '".$service->serviceID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -351,10 +351,11 @@ class DBConnect //create a class for make connection
     }
 
 
+
     //delete
     function deleteUser($user){
         $sqlDelete = "DELETE FROM user 
-        WHERE id_user = $user";
+        WHERE id_user ='". $user."'";
 
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
@@ -367,7 +368,7 @@ class DBConnect //create a class for make connection
 
     function deleteShoppingCart($shoppingcart){
         $sqlDelete = "DELETE FROM shoppingcart 
-        WHERE id_shoppingcart = $shoppingcart";
+        WHERE id_shoppingcart = '".$shoppingcart."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -379,7 +380,7 @@ class DBConnect //create a class for make connection
 
     function deleteShoppingCartItem($sci){
         $sqlDelete = "DELETE FROM shoppingcartitem 
-        WHERE id_shoppingcartitem = $sci";
+        WHERE id_shoppingcartitem = '".$sci."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -391,7 +392,7 @@ class DBConnect //create a class for make connection
 
     function deleteItem($item){
         $sqlDelete = "DELETE FROM item 
-        WHERE id_item = $item";
+        WHERE id_item = '".$item."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -403,7 +404,7 @@ class DBConnect //create a class for make connection
 
     function deleteItemBrand($itembrand){
         $sqlDelete = "DELETE FROM itembrand 
-        WHERE id_itembrand = $itembrand";
+        WHERE id_itembrand = '".$itembrand."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -415,7 +416,7 @@ class DBConnect //create a class for make connection
 
     function deleteCategory($category){
         $sqlDelete = "DELETE FROM category 
-        WHERE id_category= $category";
+        WHERE id_category='". $category."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -427,7 +428,7 @@ class DBConnect //create a class for make connection
 
     function deleteInvoiceItem($ii){
         $sqlDelete = "DELETE FROM invoiceitem 
-        WHERE id_invoiceitem = $ii";
+        WHERE id_invoiceitem ='". $ii."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -439,7 +440,7 @@ class DBConnect //create a class for make connection
 
     function deleteOrder($order){
         $sqlDelete = "DELETE FROM order 
-        WHERE id_order= $order";
+        WHERE id_order= '".$order."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -451,7 +452,7 @@ class DBConnect //create a class for make connection
 
     function deletePayment($payment){
         $sqlDelete = "DELETE FROM payment 
-        WHERE id_payment= $payment";
+        WHERE id_payment= '".$payment."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -463,7 +464,7 @@ class DBConnect //create a class for make connection
 
     function deleteService($service){
         $sqlDelete = "DELETE FROM service 
-        WHERE id_service= $service";
+        WHERE id_service= '".$service."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
