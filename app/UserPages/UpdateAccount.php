@@ -1,5 +1,6 @@
 <?php
 include "../DataClasses/user.php";
+include "../Processing/updateAccountProcess.php";
 if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
@@ -78,44 +79,87 @@ include '../Structure/header.php'
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
-<div class="container" style= "padding-right: 140px; padding-left: 140px;">
-    <div style= "text-align: center;" ><b>You are logged in as the following user</b></div>
-    <table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon "></span></div>
+                <div class="panel-body">
+                    <form action = "UpdateAccount.php" method= "post" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-3 control-label">
+                                Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="<?php echo $user->userName ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSurname" class="col-sm-3 control-label">
+                                Surname</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Surname" value="<?php echo $user->userSurname ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputContact" class="col-sm-3 control-label">
+                                Contact Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputContact" name="inputContact" placeholder="Contact Number" value="<?php echo $user->userContact ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">
+                                Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" value="<?php echo $user->userEmail ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label">
+                                Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" value="<?php echo $user->userPassword ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-sm btn-login">
+                                    Update</button>
 
-        <tr>
-            <td><b>Name:</b></td>
-            <?php
-            echo "<td>$user->userName</td>";
-            ?>
-        </tr>
-        <tr>
-            <td><b>Surname:</b></td>
-            <?php
-            echo "<td>$user->userSurname</td>";
-            ?>
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <?php if (isset($_SESSION['errors'])): ?>
+                                    <div class="form-errors" style="color: red;">
+                                        </br>
+                                        <?php foreach($_SESSION['errors'] as $error): ?>
+                                            <p><?php if($error=="true")
+                                                {
+                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
+                                                                window.location = 'Account.php';
+                                                              </script>";
 
+                                                }
+                                                else {
+                                                    echo $error;
+                                                } ?></p>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif;
 
-        </tr>
-        <tr>
-            <td><b>Contact Number:</b></td>
-            <?php
-            echo "<td>$user->userContact</td>";
-            ?>
+                                ?>
 
-        </tr>
-        <tr>
-            <td><b>Email:</td>
-            <?php
-            echo "<td>$user->userEmail</b></td>";
-            ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-        </tr>
-
-    </table>
-    <br/>
-    <button type="submit" class="btn btn-sm btn-login"><b>Update Account</b></button>
-
-</div><!-- /.row -->
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 include '../Structure/footer.php'

@@ -115,7 +115,7 @@ include '../Structure/header.php'
 
             </table>
             <br/>
-            <button type="submit" class="btn btn-sm btn-login"><b>Update Account</b></button>
+            <button onclick="window.location.href='UpdateAccount.php'" class="btn btn-sm btn-login"><b>Update Account</b></button>
         </div>
     </div>
 </div><!-- /.row -->
