@@ -92,8 +92,8 @@ include '../Structure/header.php';
                         <h3>$s->itemName</h3>
                         <p>$s->itemDescription</p>
                         <p> R $s->itemPrice</p>
-                        <p> Brand: $s->itemBrandName</p>
-                        <button onclick="productPage($s);">View Product</button>
+                        <p> Brand: $s->itembrandName</p>
+                        <button onclick="productPage($s->itemID);">View Product</button>
                     </div>
 EOD;
 
