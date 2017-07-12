@@ -63,7 +63,7 @@ include '../Structure/header.php';
             $dbOne = new DBConnect();
             if ($dbOne->connectToDatabase()) {
 
-                $sqlSelect = "SELECT * FROM beauty.vw_item";
+                $sqlSelect = "SELECT * FROM vw_item";
                 $res = mysqli_query($dbOne->myconn, $sqlSelect);
 
                 if ($res) {
