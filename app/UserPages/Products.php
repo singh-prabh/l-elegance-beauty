@@ -102,6 +102,9 @@ EOD;
 
                 }
             }
+            else{
+                echo "poop";
+            }
         ?>
     </div>
 
