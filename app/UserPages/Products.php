@@ -94,6 +94,7 @@ include '../Structure/header.php';
                         <p> R $s->itemPrice</p>
                         <p> Brand: $s->itembrandName</p>
                         <button onclick="productPage($s->itemID);">View Product</button>
+                        <br/>
                     </div>
 EOD;
 
