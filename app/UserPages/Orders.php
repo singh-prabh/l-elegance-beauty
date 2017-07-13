@@ -3,8 +3,16 @@ if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
+    include '../DatabaseConnection/DBConnect.php';
+    include '../DataClasses/user.php';
+    include '../DataClasses/vw_order.php';
+    include '../DataClasses/order.php';
+
+    $user= unserialize($_COOKIE["account"]);
 
 }
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,29 +82,125 @@ include '../Structure/header.php'
 <div class="container marketing">
     <table>
         <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
-            <th>Telephone Number</th>
-            <th>Position</th>
-        </tr>
-        <tr>
-            <td>Lisle</td>
-            <td>Weiermans</td>
-            <td>lisleweiermans@gmail.com</td>
-            <td>082-805-5501</td>
-            <td>Beauty Therapist and Owner</td>
-
+            <th>OrderID</th>
+            <th>Order Completion Status</th>
+            <th>Order Collection Status</th>
+            <th>Order Date</th>
+            <th>Total Price</th>
+            <th>Quantity</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th>Category</th>
 
         </tr>
-        <tr>
-            <td>Margo</td>
-            <td>Henning</td>
-            <td>hmargo.mh@gmail.com</td>
-            <td>076-909-2776</td>
-            <td>Website Developer and Tech Support</td>
+        <?php
+            $dbOne = new DBConnect();
+            if ($dbOne->connectToDatabase()) {
 
-        </tr>
+                $sqlSelect = "SELECT * FROM vw_order WHERE UserID='".$user->userID."'";
+                $res = mysqli_query($dbOne->myconn, $sqlSelect);
+
+                if ($res) {
+
+                    $a = array();
+                    while ($resArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+
+                        $order = new vw_order();
+
+                        $order->orderID = $resArray["OrderID"];
+                        $order->orderStatusCom = $resArray["orderStatusCom"];
+                        $order->orderStatusCol = $resArray["orderStatusCol"];
+                        $order->orderDate = $resArray["orderDate"];
+                        $order->totalPrice = $resArray["totalPrice"];
+
+
+                        $order->UserID = $resArray["UserID"];
+                        $order->invoiceitemID = $resArray["invoiceitemID"];
+                        $order->quantity = $resArray["quantity"];
+                        $order->price = $resArray["price"];
+                        $order->itemID = $resArray["ItemID"];
+                        $order->itemName = $resArray["ItemName"];
+                        $order->itemDescription = $resArray["ItemDescription"];
+                        $order->itemPrice = $resArray["ItemPrice"];
+                        $order->itembrandID = $resArray["BrandID"];
+                        $order->itembrandName = $resArray["BrandName"];
+                        $order->categoryName = $resArray["CategoryName"];
+                        $order->categoryID = $resArray["CategoryID"];
+                        $order->itemImage = $resArray["Image"];
+
+                        array_push($a, $order);
+                    }
+
+                    $sqlSelectO = "SELECT * FROM order WHERE id_user ='".$user->userID."'";
+                    $resO = mysqli_query($dbOne->myconn, $sqlSelectO);
+
+                    if ($resO) {
+
+                        $aO = array();
+                        while ($resArrayO = mysqli_fetch_array($resO, MYSQLI_ASSOC)) {
+                            $orderO = new order();
+                            $orderO->orderID = $resArrayO["id_order"];
+                            $orderO->userID = $resArrayO["id_user"];
+                            $orderO->statusCompleted = $resArrayO["statusCompleted"];
+                            $orderO->orderDate = $resArrayO["orderDate"];
+                            $orderO->statusCollected = $resArrayO["statusCollected"];
+                            $orderO->totalPrice = $resArrayO["totalPrice"];
+
+                            array_push($aO, $orderO);
+                        }
+
+
+                        for ($i = 0; $i < count($aO); $i++) {
+                            $o= $aO[$i];
+                            $arr = array();
+
+                            for($j=0; $j<count($a);$j++){
+                                $s = $a[$j];
+                                if($s->orderID==$o->orderID){
+                                    array_push($arr, $s);
+                                }
+                            }
+
+                            $numItem = count($arr);
+                            for($x=0;$x<$numItem; $x++){
+                                $curr=$arr[$x];
+                                echo "<tr>";
+                              if($x==0){
+                                echo "<td rowspan=\"$numItem\">$curr->orderID</td>";
+                                echo "<td rowspan=\"$numItem\">$curr->orderStatusCom</td>";
+                                echo "<td rowspan=\"$numItem\">$curr->orderStatusCol</td>";
+                                echo "<td rowspan=\"$numItem\">$curr->orderDate</td>";
+                                echo "<td rowspan=\"$numItem\">$curr->totalPrice</td>";
+                              }
+                              echo "<td >$curr->quantity</td>";
+                              echo "<td >$curr->itemName</td>";
+                              echo "<td >$curr->itemDescription</td>";
+                              echo "<td >$curr->price</td>";
+                              echo "<td >$curr->itembrandName</td>";
+                              echo "<td >$curr->categoryName</td>";
+                              echo "</tr>";
+
+
+                            }
+
+
+
+                        }
+                    }
+
+
+
+
+                }
+            }
+            else{
+                echo "poop";
+            }
+        ?>
+
+
 
     </table>
 

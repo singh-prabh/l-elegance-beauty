@@ -12,6 +12,9 @@ class order
     public $orderID;
     public $userID;
     public $statusCompleted;
+    public $orderDate;
+    public $statusCollected;
+
 
     public function __construct()
     {
@@ -31,6 +34,13 @@ class order
         return $this->$statusCompleted;
     }
 
+    public function __getOrderDate($orderDate){
+        return $this->$orderDate;
+    }
+    public function __getStatusCollected($statusCollected){
+        return $this->$statusCollected;
+    }
+
     //set
     public function __setOrderID($orderID, $val){
         return $this->$orderID=$val;
@@ -42,5 +52,13 @@ class order
 
     public function __setStatusCompleted($statusCompleted, $val){
         return $this->$statusCompleted=$val;
+    }
+
+    public function __setOrderDate($orderDate, $val){
+        return $this->$orderDate=$val;
+    }
+
+    public function __setStatusCollected($statusCollected, $val){
+        return $this->$statusCollected=$val;
     }
 }
