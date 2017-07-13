@@ -34,7 +34,7 @@ if(!isset($_COOKIE["account"])) {
                 $item->itembrandID = $resArray["BrandID"];
                 $item->itembrandName = $resArray["Brand"];
                 $item->categoryName = $resArray["Category"];
-                $item->categoryName = $resArray["CategoryID"];
+                $item->categoryID = $resArray["CategoryID"];
                 $item->itemImage = $resArray["Image"];
 
 
