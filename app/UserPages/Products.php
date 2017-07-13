@@ -87,7 +87,7 @@ include '../Structure/header.php';
                     for ($i = 0; $i < count($a); $i++) {
                         $s = $a[$i];
                         echo '<div class="col-md-4 text-center col-sm-12" style="height: 500px;">';
-                        echo '<div class="img-product"><img src="data:image/jpeg;base64,'.base64_encode($s->itemImage).'"  /></div>';
+                        echo '<img src="data:image/jpeg;base64,'.base64_encode($s->itemImage).'" />';
                         echo <<<EOD
                         <h3>$s->itemName</h3>
                         <p>$s->itemDescription</p>
