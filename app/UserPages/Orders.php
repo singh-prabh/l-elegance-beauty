@@ -63,9 +63,7 @@ if(!isset($_COOKIE["account"])) {
             padding: 8px;
         }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
+
 
     </style>
 </head>
@@ -107,33 +105,33 @@ include '../Structure/header.php'
                     $a = array();
                     while ($resArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
 
-                        $order = new vw_order();
+                        $orderr = new vw_order();
 
-                        $order->orderID = $resArray["OrderID"];
-                        $order->orderStatusCom = $resArray["orderStatusCom"];
-                        $order->orderStatusCol = $resArray["orderStatusCol"];
-                        $order->orderDate = $resArray["orderDate"];
-                        $order->totalPrice = $resArray["totalPrice"];
+                        $orderr->orderID = $resArray["OrderID"];
+                        $orderr->orderStatusCom = $resArray["orderStatusCom"];
+                        $orderr->orderStatusCol = $resArray["orderStatusCol"];
+                        $orderr->orderDate = $resArray["orderDate"];
+                        $orderr->totalPrice = $resArray["totalPrice"];
 
 
-                        $order->UserID = $resArray["UserID"];
-                        $order->invoiceitemID = $resArray["invoiceitemID"];
-                        $order->quantity = $resArray["quantity"];
-                        $order->price = $resArray["price"];
-                        $order->itemID = $resArray["ItemID"];
-                        $order->itemName = $resArray["ItemName"];
-                        $order->itemDescription = $resArray["ItemDescription"];
-                        $order->itemPrice = $resArray["ItemPrice"];
-                        $order->itembrandID = $resArray["BrandID"];
-                        $order->itembrandName = $resArray["BrandName"];
-                        $order->categoryName = $resArray["CategoryName"];
-                        $order->categoryID = $resArray["CategoryID"];
-                        $order->itemImage = $resArray["Image"];
+                        $orderr->UserID = $resArray["UserID"];
+                        $orderr->invoiceitemID = $resArray["invoiceitemID"];
+                        $orderr->quantity = $resArray["quantity"];
+                        $orderr->price = $resArray["price"];
+                        $orderr->itemID = $resArray["ItemID"];
+                        $orderr->itemName = $resArray["ItemName"];
+                        $orderr->itemDescription = $resArray["ItemDescription"];
+                        $orderr->itemPrice = $resArray["ItemPrice"];
+                        $orderr->itembrandID = $resArray["BrandID"];
+                        $orderr->itembrandName = $resArray["BrandName"];
+                        $orderr->categoryName = $resArray["CategoryName"];
+                        $orderr->categoryID = $resArray["CategoryID"];
+                        $orderr->itemImage = $resArray["Image"];
 
-                        array_push($a, $order);
+                        array_push($a, $orderr);
                     }
 
-                    $sqlSelectO = "SELECT * FROM order WHERE id_user ='".$user->userID."'";
+                    $sqlSelectO = "SELECT * FROM `order` WHERE id_user ='".$user->userID."'";
                     $resO = mysqli_query($dbOne->myconn, $sqlSelectO);
 
                     if ($resO) {
@@ -169,15 +167,26 @@ include '../Structure/header.php'
                                 echo "<tr>";
                               if($x==0){
                                 echo "<td rowspan=\"$numItem\">$curr->orderID</td>";
-                                echo "<td rowspan=\"$numItem\">$curr->orderStatusCom</td>";
-                                echo "<td rowspan=\"$numItem\">$curr->orderStatusCol</td>";
+                                if($curr->orderStatusCom==0){
+                                    echo "<td rowspan=\"$numItem\">No</td>";
+                                }
+                                else{
+                                    echo "<td rowspan=\"$numItem\">Yes</td>";
+                                }
+                                if($curr->orderStatusCol==0) {
+                                    echo "<td rowspan=\"$numItem\">No</td>";
+                                }
+                                else{
+                                    echo "<td rowspan=\"$numItem\">Yes</td>";
+                                }
+
                                 echo "<td rowspan=\"$numItem\">$curr->orderDate</td>";
-                                echo "<td rowspan=\"$numItem\">$curr->totalPrice</td>";
+                                echo "<td rowspan=\"$numItem\">R $curr->totalPrice</td>";
                               }
                               echo "<td >$curr->quantity</td>";
                               echo "<td >$curr->itemName</td>";
                               echo "<td >$curr->itemDescription</td>";
-                              echo "<td >$curr->price</td>";
+                              echo "<td >R $curr->price</td>";
                               echo "<td >$curr->itembrandName</td>";
                               echo "<td >$curr->categoryName</td>";
                               echo "</tr>";
@@ -189,10 +198,16 @@ include '../Structure/header.php'
 
                         }
                     }
+                    else{
+                        echo $sqlSelectO;
+                    }
 
 
 
 
+                }
+                else{
+                    echo "poop1";
                 }
             }
             else{

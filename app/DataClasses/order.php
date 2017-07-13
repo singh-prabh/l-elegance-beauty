@@ -14,6 +14,7 @@ class order
     public $statusCompleted;
     public $orderDate;
     public $statusCollected;
+    public $totalPrice;
 
 
     public function __construct()
@@ -40,6 +41,9 @@ class order
     public function __getStatusCollected($statusCollected){
         return $this->$statusCollected;
     }
+    public function __getTotalPrice($totalPrice){
+        return $this->$totalPrice;
+    }
 
     //set
     public function __setOrderID($orderID, $val){
@@ -60,5 +64,9 @@ class order
 
     public function __setStatusCollected($statusCollected, $val){
         return $this->$statusCollected=$val;
+    }
+
+    public function __setTotalPrice($totalPrice, $val){
+        return $this->$totalPrice=$val;
     }
 }

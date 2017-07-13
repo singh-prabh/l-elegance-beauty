@@ -40,7 +40,11 @@ if(!isset($_COOKIE["account"])) {
 
             }
         }
+        else{
+            echo "poop2";
+        }
     }
+
 }
 ?>
 <!DOCTYPE html>
