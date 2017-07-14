@@ -76,7 +76,7 @@ include "../DatabaseConnection/DBConnect.php";
 </head>
 <body>
 <?php
-include '../Structure/header.php'
+include '../Structure/AdminHeader.php'
 ?>
 <div>
     <p class="form-title">
@@ -172,6 +172,7 @@ include '../Structure/footer.php'
 <script>
     function productRemove(num){
         window.location.href = "ServiceRemove.php?id=" + num;
+
     }
 </script>
 
