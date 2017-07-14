@@ -14,9 +14,10 @@ class vw_order
     public $orderStatusCom;
     public $orderStatusCol;
     public $orderDate;
-    public $totalPrice;
+    public $ordertotalPrice;
     public $UserID;
     public $invoiceitemID;
+    public $invoiceitemtotalprice;
     public $quantity;
     public $price;
 
@@ -66,6 +67,10 @@ class vw_order
         return $this->$invoiceitemID;
     }
 
+    public function __getinvoiceitemtotalprice($invoiceitemtotalprice){
+        return $this->$invoiceitemtotalprice;
+    }
+
     public function __getQuantity($quantity){
         return $this->$quantity;
     }
@@ -74,8 +79,8 @@ class vw_order
         return $this->$price;
     }
 
-    public function __getTotalPrice($totalPrice){
-        return $this->$totalPrice;
+    public function __getOrderTotalPrice($ordertotalPrice){
+        return $this->$ordertotalPrice;
     }
     public function __getCategoryName($categoryName){
         return $this->$categoryName;
@@ -138,9 +143,12 @@ class vw_order
     public function __setPrice($price, $val){
         return $this->$price= $val;
     }
+    public function __setinvoiceitemtotalprice($invoiceitemtotalprice, $val){
+        return $this->$invoiceitemtotalprice=$val;
+    }
 
-    public function __setTotalPrice($totalPrice, $val){
-        return $this->$totalPrice= $val;
+    public function __setOrderTotalPrice($ordertotalPrice, $val){
+        return $this->$ordertotalPrice= $val;
     }
 
 

@@ -73,7 +73,7 @@ include '../Structure/header.php'
 ?>
 <div>
     <p class="form-title">
-        Contact Us</p>
+        my-Orders </p>
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
@@ -84,13 +84,16 @@ include '../Structure/header.php'
             <th>Order Completion Status</th>
             <th>Order Collection Status</th>
             <th>Order Date</th>
-            <th>Total Price</th>
-            <th>Quantity</th>
+            <th>Total Price per Order</th>
+
             <th>Product Name</th>
             <th>Product Description</th>
-            <th>Price</th>
+
             <th>Brand</th>
             <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price per Product</th>
 
         </tr>
         <?php
@@ -113,9 +116,10 @@ include '../Structure/header.php'
                         $orderr->orderDate = $resArray["orderDate"];
                         $orderr->totalPrice = $resArray["totalPrice"];
 
-
                         $orderr->UserID = $resArray["UserID"];
                         $orderr->invoiceitemID = $resArray["invoiceitemID"];
+                        $orderr->invoiceitemtotalprice = $resArray["invoiceTotalPrice"];
+
                         $orderr->quantity = $resArray["quantity"];
                         $orderr->price = $resArray["price"];
                         $orderr->itemID = $resArray["ItemID"];
@@ -183,12 +187,15 @@ include '../Structure/header.php'
                                 echo "<td rowspan=\"$numItem\">$curr->orderDate</td>";
                                 echo "<td rowspan=\"$numItem\">R $curr->totalPrice</td>";
                               }
-                              echo "<td >$curr->quantity</td>";
+
                               echo "<td >$curr->itemName</td>";
                               echo "<td >$curr->itemDescription</td>";
-                              echo "<td >R $curr->price</td>";
+
                               echo "<td >$curr->itembrandName</td>";
                               echo "<td >$curr->categoryName</td>";
+                                echo "<td >$curr->quantity</td>";
+                                echo "<td >R $curr->price</td>";
+                                echo "<td >R $curr->invoiceitemtotalprice</td>";
                               echo "</tr>";
 
 
