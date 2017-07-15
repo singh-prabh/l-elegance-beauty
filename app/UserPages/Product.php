@@ -179,6 +179,8 @@ include '../Structure/header.php'
             </table>
             <br/>
             <button onclick="window.location.href='UpdateAccount.php'" class="btn btn-sm btn-login"><b>Add to Cart</b></button>
+
+
         </div>
     </div>
 </div><!-- /.row -->
