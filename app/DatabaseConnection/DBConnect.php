@@ -86,8 +86,8 @@ class DBConnect //create a class for make connection
     }
 
     function insertShoppingCartItem(shoppingcartitem $sci){
-        $sqlInsert = "INSERT INTO shoppingcartitem (id_item, id_shoppingcart,quantity) 
-          VALUES('".$sci->itemID."','".$sci->shoppingcartID."','".$sci->quantity."')";
+        $sqlInsert = "INSERT INTO shoppingcartitem (id_item, id_user,quantity,totalPrice) 
+          VALUES('".$sci->itemID."','".$sci->userID."','".$sci->quantity."','".$sci->totalPrice."')";
         $res = mysqli_query($this->myconn, $sqlInsert);
         if($res){
             return true;

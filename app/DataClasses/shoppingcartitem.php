@@ -10,10 +10,10 @@ class shoppingcartitem
 {
 
     public $shoppingcartitemID;
-    public $shoppingcartID;
+    public $userID;
     public $itemID;
     public $quantity;
-
+    public $totalPrice;
 
 
     public function __construct()
@@ -26,7 +26,7 @@ class shoppingcartitem
         return $this->$shoppingcartitemID;
     }
 
-    public function __getShoppingcartID($shoppingcartID){
+    public function __getUserID($shoppingcartID){
         return $this->$shoppingcartID;
     }
 
@@ -36,6 +36,10 @@ class shoppingcartitem
 
     public function __getQuantity($quantity){
         return $this->$quantity;
+    }
+
+    public function __getTotalPrice($totalPrice){
+        return $this->$totalPrice;
     }
 
 
@@ -48,8 +52,8 @@ class shoppingcartitem
         return $this->$shoppingcartitemID=$val;
     }
 
-    public function __setShoppingcartID($shoppingcartID, $val){
-        return $this->$shoppingcartID=$val;
+    public function __setShoppingcartID($userID, $val){
+        return $this->$userID=$val;
     }
 
     public function __setItemID($itemID, $val){
@@ -58,6 +62,10 @@ class shoppingcartitem
 
     public function __setQuantity($quantity, $val){
         return $this->$quantity=$val;
+    }
+
+    public function __setTotalPrice($totalPrice, $val){
+        return $this->$totalPrice=$val;
     }
 
 

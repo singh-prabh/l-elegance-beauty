@@ -1,15 +1,8 @@
-<?php
-if(!isset($_COOKIE["account"])) {
-    header('Location: ' . '../../index.php'); /* Redirect browser */
-    die();
-} else {
-
-}
-?>
 
 <?php
 include "../DataClasses/vw_item.php";
 include "../DatabaseConnection/DBConnect.php";
+
 if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
@@ -41,7 +34,7 @@ if(!isset($_COOKIE["account"])) {
             }
         }
         else{
-            echo "poop2";
+            echo "p2";
         }
     }
 
@@ -104,6 +97,47 @@ if(!isset($_COOKIE["account"])) {
         .btn-login {
             background-color: #47c4b6;
             color: white;
+        }
+
+        .spinner {
+            width: 100px;
+        }
+        .spinner input {
+            text-align: right;
+        }
+        .input-group-btn-vertical {
+            position: relative;
+            white-space: nowrap;
+            width: 1%;
+            vertical-align: middle;
+            display: table-cell;
+        }
+        .input-group-btn-vertical > .btn {
+            display: block;
+            float: none;
+            width: 100%;
+            max-width: 100%;
+            padding: 8px;
+            margin-left: -1px;
+            position: relative;
+            border-radius: 0;
+        }
+        .input-group-btn-vertical > .btn:first-child {
+            border-top-right-radius: 4px;
+        }
+        .input-group-btn-vertical > .btn:last-child {
+            margin-top: -2px;
+            border-bottom-right-radius: 4px;
+        }
+        .input-group-btn-vertical i{
+            position: absolute;
+            top: 0;
+            left: 1px;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
     </style>
@@ -178,7 +212,21 @@ include '../Structure/header.php'
 
             </table>
             <br/>
-            <button onclick="window.location.href='UpdateAccount.php'" class="btn btn-sm btn-login"><b>Add to Cart</b></button>
+            <form action = "AddToCart.php" method= "post" class="form-horizontal" role="form">
+                <div class="input-group spinner">
+                    <input type="number" class="form-control" name="quantity" value="1" min="1"  oninput="validity.valid||(value='');">
+                    <div class="input-group-btn-vertical">
+                        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-triangle-top"></i></button>
+                        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-triangle-bottom"></i></button>
+
+                    </div>
+                </div>
+                <input type="hidden" name="itemID" value="<?php echo $item->itemID ?>">
+                <input type="hidden" name="price" value="<?php echo $item->itemPrice ?>">
+                <br/>
+                <button type="submit" class="btn btn-sm btn-login"><b>Add to Cart</b></button>
+            </form>
+
 
 
         </div>
@@ -190,5 +238,20 @@ include '../Structure/footer.php'
 ?>
 <script src="../packages/jquery/jquery-3.2.1.min.js"></script>
 <script src="../packages/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    (function ($) {
+        $('.spinner .btn:first-of-type').on('click', function() {
+            $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+        });
+        $('.spinner .btn:last-of-type').on('click', function() {
+            if($('.spinner input').val()==1){
+
+            }
+            else {
+                $('.spinner input').val(parseInt($('.spinner input').val(), 10) - 1);
+            }
+        });
+    })(jQuery);
+</script>
 </body>
 </html>
