@@ -145,11 +145,13 @@ class DBConnect //create a class for make connection
     }
 
     function insertOrder(order $order){
-        $sqlInsert = "INSERT INTO order (id_user, statusCompleted,orderDate) 
-          VALUES('".$order->userID."','".$order->statusCompleted."','".$order->orderDate."')";
+        $sqlInsert = "INSERT INTO order (id_user, statusCompleted,orderDate, statusCollected, totalPrice) 
+          VALUES('".$order->userID."','".$order->statusCompleted."','".$order->orderDate."','".$order->statusCollected."','".$order->totalPrice."')";
         $res = mysqli_query($this->myconn, $sqlInsert);
+
         if($res){
-            return true;
+            $id = mysqli_insert_id($this->myconn);
+            return $id;
         }
         else{
             return false;

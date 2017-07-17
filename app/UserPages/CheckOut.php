@@ -161,17 +161,10 @@ include '../Structure/header.php'
                 }
                 echo "<tr>";
                 echo "<td colspan='9'></td>";
-                echo "<td  >R $checkoutprice      $final</td>";
+                echo "<td  >R $checkoutprice</td>";
                 echo "</tr>";
 
-
-
-
-
             }
-
-
-
 
         }
 
@@ -180,6 +173,7 @@ include '../Structure/header.php'
 
 
     </table>
+    <div > Please note that the ZAR price displayed will be converted to USD using the current exchange rate when checking out.  </div>
     <br/>
     <div id="paypal-button"></div>
 
@@ -228,6 +222,7 @@ include '../Structure/footer.php'
                 experience: {
                     input_fields: {
                         no_shipping: 1
+
                     }
                 }
             });
@@ -236,9 +231,8 @@ include '../Structure/footer.php'
         onAuthorize: function(data, actions) {
             return actions.payment.execute().then(function(payment) {
 
-
                 window.alert("Your payment was made successfully! Your order will be logged now.");
-                // You can now show a confirmation message to the customer
+
             });
         }
 
