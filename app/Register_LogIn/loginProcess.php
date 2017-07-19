@@ -50,7 +50,7 @@ else {
 
                     $insertLogOn = $dbOne->insertLogintimestamp($logintimestamp);
                     if($insertLogOn){
-                        $cookie_name = "account";
+                        $cookie_name = "accountA";
                         $cookie_value = $userOne;
                         setcookie($cookie_name, serialize($cookie_value), 0, "/");
                         header('Location: ' . 'app/AdminPages/Home.php'); /* Redirect browser */

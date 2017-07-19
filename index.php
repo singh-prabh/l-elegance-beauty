@@ -1,5 +1,8 @@
 <?php
 require 'app/Register_LogIn/loginProcess.php';
+if(!isset($_COOKIE["account"])) {
+
+}
 
 ?>
 
@@ -16,7 +19,7 @@ require 'app/Register_LogIn/loginProcess.php';
     <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
         body {
-            background: url(app/Images/SNuymfs.jpg) no-repeat center center fixed;
+            background: url(app/Images/380566.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -34,9 +37,28 @@ require 'app/Register_LogIn/loginProcess.php';
             background-color: #47c4b6;
             color: white;
         }
+        .form-title
+        {
+            font-family: 'Open Sans' , sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+            color: #3c3c3c;
+            margin-top: 5%;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            padding-top: 50px;
+            padding-bottom: 80px;
+        }
     </style>
 </head>
 <body>
+<div class="form-title" style="background-color: white;">
+    <div >L'Elegance Beauty </div>
+    <div style="font-size: 12px;"> Please Log In to continue </div>
+
+
+</div>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">

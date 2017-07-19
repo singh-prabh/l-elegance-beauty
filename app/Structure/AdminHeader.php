@@ -23,7 +23,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" onclick="logout();">LogOut</a></li>
+                <li><a href="../Processing/LogOut.php" onclick="logout();">LogOut</a></li>
 
             </ul>
 

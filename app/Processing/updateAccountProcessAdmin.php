@@ -5,7 +5,34 @@
  * Date: 2017-07-06
  * Time: 12:29 PM
  */
+if(!isset($_COOKIE["account"])) {
+    header('Location: ' . '../../index.php'); /* Redirect browser */
+    die();
+} else {
+    include "../DataClasses/user.php";
+    include "../DatabaseConnection/DBConnect.php";
+    $dbOne = new DBConnect();
+    $user = unserialize($_COOKIE["account"]);
 
+    if ($dbOne->connectToDatabase()) {
+
+        $c = "SELECT * FROM user WHERE id_user ='".$user->userID."'";
+        $r = mysqli_query($dbOne->myconn, $c);
+
+        if ($r) {
+            if(mysqli_fetch_array($r, MYSQLI_ASSOC))
+            {
+
+            }
+            else{
+                header('Location: ' . '../../index.php'); /* Redirect browser */
+                die();
+            }
+        }
+
+    }
+
+}
 if (empty($_POST) ){
 
 }
