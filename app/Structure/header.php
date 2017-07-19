@@ -23,8 +23,20 @@
                 <li><a href="../UserPages/Account.php">myAccount</a></li>
                 <li><a href="../UserPages/Orders.php">myOrders</a></li>
                 <li><a href="../UserPages/CheckOut.php"><img src="../Images/shopping-cart.png" alt="Cart Icon" /> myCart</a></li>
+                <li><a href="#" onclick="logout();">LogOut</a></li>
 
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<script>
+    function logout(){
+        var out =window.confirm("Are you sure you want to log out of L'Elegance Beauty?");
+        if(out==true){
+            window.location.href = "../Processing/LogOut.php";
+        }
+        else{
+
+        }
+    }
+</script>

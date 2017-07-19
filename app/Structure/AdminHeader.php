@@ -22,7 +22,22 @@
                 <li><a href="../AdminPages/AccountAdmin.php">myAccount</a></li>
 
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" onclick="logout();">LogOut</a></li>
+
+            </ul>
 
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<script>
+    function logout(){
+        var out =window.confirm("Are you sure you want to log out of L'Elegance Beauty?");
+        if(out==true){
+            window.location.href = "../Processing/LogOut.php";
+        }
+        else{
+
+        }
+    }
+</script>
