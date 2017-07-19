@@ -10,12 +10,10 @@ if (empty($_POST) ){
 
 }
 else {
-
-    session_start();
     include "../DatabaseConnection/DBConnect.php";
+    session_start();
     $dbOne = new DBConnect();
     $CurUser= unserialize($_COOKIE["account"]);
-
     $CurUser->userName = $_POST['inputName'];
     $CurUser->userSurname = $_POST['inputSurname'];
     $CurUser->userContact = $_POST['inputContact'];

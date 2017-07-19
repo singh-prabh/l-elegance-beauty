@@ -175,7 +175,7 @@ include '../Structure/header.php'
     </table>
     <div > Please note that the ZAR price displayed will be converted to USD using the current exchange rate when checking out.  </div>
     <br/>
-    <div id="paypal-button"></div>
+    <div id="paypal-button" ></div>
 
 </div><!-- /.row -->
 
@@ -223,6 +223,7 @@ include '../Structure/footer.php'
                     input_fields: {
                         no_shipping: 1
 
+
                     }
                 }
             });
@@ -232,9 +233,14 @@ include '../Structure/footer.php'
             return actions.payment.execute().then(function(payment) {
 
                 window.alert("Your payment was made successfully! Your order will be logged now.");
+                window.location.href = "../../app/Processing/LogOrder.php";
+
+
 
             });
         }
+
+
 
     }, '#paypal-button');
 </script>

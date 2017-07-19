@@ -13,6 +13,7 @@ class invoiceitem
     public $itemID;
     public $quantity;
     public $price;
+    public $tprice;
 
 
     public function __construct()
@@ -40,6 +41,9 @@ class invoiceitem
     public function __getPrice($price){
         return $this->$price;
     }
+    public function __getTPrice($tprice){
+        return $this->$tprice;
+    }
 
 
 
@@ -63,6 +67,9 @@ class invoiceitem
 
     public function __setPrice($price, $val){
         return $this->$price=$val;
+    }
+    public function __setTPrice($tprice, $val){
+        return $this->$tprice=$val;
     }
 
 

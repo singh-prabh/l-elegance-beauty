@@ -5,9 +5,12 @@
  * Date: 2017-07-17
  * Time: 08:41 PM
  */
-echo "<script>window.alert(\"Your payment was made successfully! Your order will be logged now.\");</script>";
+
 include "../DataClasses/user.php";
+include "../DataClasses/order.php";
 include "../DataClasses/vw_cart.php";
+include "../DataClasses/invoiceitem.php";
+include "../DataClasses/payment.php";
 include "../DatabaseConnection/DBConnect.php";
 
 $user= unserialize($_COOKIE["account"]);
@@ -45,38 +48,66 @@ if ($dbOne->connectToDatabase()) {
         $order = new order();
         $order->userID = $user->userID;
         $order->statusCompleted = 0;
-        $order->orderDate= date("Y-m-d h:i:sa");
+        date_default_timezone_set('Africa/Johannesburg');
+        $order->orderDate= date("Y-m-d H:i:s");
         $order->statusCollected = 0;
         $order->totalPrice = $orderTotal;
 
         $orderid = $dbOne->insertOrder($order);
+        echo $orderid;
         if($orderid!=false){
 
-            $ok=true;
-            for($i=0;$i<count($a);$i++){
-                $c = $a[$i];
+            $p = new payment();
+            $p->orderID = $orderid;
+            $p->completed = 1;
+            $pay = $dbOne->insertPayment($p);
+            if($pay){
+                $ok=true;
+                for($i=0;$i<count($a);$i++){
+                    $c = $a[$i];
 
-                $ii = new invoiceitem();
-                $ii->itemID = $c->itemID;
-                $ii->orderID = $orderid;
-                $ii->price = $c->itemPrice;
-                $ii->quantity = $c->quantity;
+                    $ii = new invoiceitem();
+                    $ii->itemID = $c->itemID;
+                    $ii->orderID = $orderid;
+                    $ii->price = $c->itemPrice;
+                    $ii->quantity = $c->quantity;
+                    $ii->tprice = $c->quantity * $c->itemPrice;
 
-                $resII = $dbOne->insertInvoiceItem($ii);
+                    $resII = $dbOne->insertInvoiceItem($ii);
 
-                if($resII){
+                    if($resII){
+
+                    }
+                    else{
+                        $ok = false;
+                        break;
+                    }
+
 
                 }
-                else{
-                    $ok = false;
-                    break;
+                if($ok !=false){
+                    $deleted = true;
+                    for($r=0;$r<count($a);$r++){
+                        $del = $dbOne->deleteShoppingCartItem($a[$r]->shoppingcartitemID);
+                        if($del ==true){
+
+                        }
+                        else{
+                            $deleted = false;
+                            break;
+                        }
+
+                    }
+                    if($deleted == true){
+                        header('Location: ' . '../UserPages/Orders.php');
+                    }
+
                 }
-
-
             }
-            if($ok !=false){
-                header('Location: ' . '../UserPages/Orders.php');
-            }
+
+        }
+        else{
+
         }
 
 

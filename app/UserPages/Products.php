@@ -68,7 +68,7 @@ include '../Structure/header.php';
             $dbOne = new DBConnect();
             if ($dbOne->connectToDatabase()) {
 
-                $sqlSelect = "SELECT * FROM vw_item";
+                $sqlSelect = "SELECT * FROM vw_item WHERE activated ='1'";
                 $res = mysqli_query($dbOne->myconn, $sqlSelect);
 
                 if ($res) {

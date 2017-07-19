@@ -16,6 +16,7 @@ class item
     public $categoryID;
     public $itembrandID;
     public $itemImage;
+    public $activated;
 
 
     public function __construct()
@@ -26,6 +27,10 @@ class item
     //get
     public function __getItemID($itemID){
         return $this->$itemID;
+    }
+
+    public function __getActivated($activated){
+        return $this->$activated;
     }
 
     public function __getItemName($itemName){
@@ -58,6 +63,9 @@ class item
     //set
     public function __setItemID($itemID, $val){
         return $this->$itemID=$val;
+    }
+    public function __setActivated($activated, $val){
+        return $this->$activated=$val;
     }
 
     public function __setItemName($itemName, $val){

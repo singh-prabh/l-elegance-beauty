@@ -1,10 +1,13 @@
 <?php
-include "../DataClasses/user.php";
-include "../Processing/updateAccountProcess.php";
+
+
 if(!isset($_COOKIE["account"])) {
-    header('Location: ' . '../../index.php'); /* Redirect browser */
+    header('Location: ' . '../../../index.php'); /* Redirect browser */
     die();
 } else {
+    include "../DataClasses/user.php";
+    include "updateAccountProcessAdmin.php";
+
     $user= unserialize($_COOKIE["account"]);
 }
 ?>
@@ -71,7 +74,7 @@ if(!isset($_COOKIE["account"])) {
 </head>
 <body>
 <?php
-include '../Structure/header.php'
+include '../Structure/AdminHeader.php'
 ?>
 <div>
     <p class="form-title">
@@ -86,7 +89,7 @@ include '../Structure/header.php'
                 <div class="panel-heading">
                     <span class="glyphicon "></span></div>
                 <div class="panel-body">
-                    <form action = "UpdateService.php" method= "post" class="form-horizontal" role="form">
+                    <form action = "UpdateAccountAdmin.php" method= "post" class="form-horizontal" role="form">
                         <div class="form-group">
                             <label for="inputName" class="col-sm-3 control-label">
                                 Name</label>
@@ -133,12 +136,12 @@ include '../Structure/header.php'
                             <div class="col-sm-offset-3 col-sm-9">
                                 <?php if (isset($_SESSION['errors'])): ?>
                                     <div class="form-errors" style="color: red;">
-                                        <br/>
+                                        </br>
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
                                                     echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'Account.php';
+                                                                window.location = 'AccountAdmin.php';
                                                               </script>";
 
                                                 }

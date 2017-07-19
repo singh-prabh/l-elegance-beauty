@@ -11,8 +11,7 @@ class payment
 
     public $paymentID;
     public $orderID;
-    public $paymentType;
-    public $paymentAccount;
+
     public $completed;
 
 
@@ -30,13 +29,7 @@ class payment
         return $this->$orderID;
     }
 
-    public function __getPaymentType($paymentType){
-        return $this->$paymentType;
-    }
 
-    public function __getPaymentAccount($paymentAccount){
-        return $this->$paymentAccount;
-    }
 
     public function __getCompleted($completed){
         return $this->$completed;
@@ -54,13 +47,7 @@ class payment
         return $this->$orderID=$val;
     }
 
-    public function __setPaymentType($paymentType, $val){
-        return $this->$paymentType=$val;
-    }
 
-    public function __setPaymentAccount($paymentAccount, $val){
-        return $this->$paymentAccount=$val;
-    }
 
     public function __setCompleted($completed, $val){
         return $this->$completed=$val;

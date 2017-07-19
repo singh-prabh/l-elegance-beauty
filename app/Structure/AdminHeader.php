@@ -17,7 +17,7 @@
                 <li><a href="../AdminPages/ServicesAdmin.php">Treatments</a></li>
                 <li><a href="../AdminPages/OrdersAdmin.php">Orders</a></li>
                 <li><a href="../AdminPages/UsersAdmin.php">Users</a></li>
-                <li><a href="../AdminPages/PaymentsAdmin.php">Payments</a></li>
+               <!-- <li><a href="../AdminPages/PaymentsAdmin.php">Payments</a></li> -->
                 <li><a href="../AdminPages/LogInRecord.php">LogIn Record</a></li>
                 <li><a href="../AdminPages/AccountAdmin.php">myAccount</a></li>
 

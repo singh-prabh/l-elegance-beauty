@@ -98,8 +98,8 @@ class DBConnect //create a class for make connection
     }
 
     function insertItem(item $item){
-        $sqlInsert = "INSERT INTO item (itemName, itemDescription,itemPrice, id_category, id_itembrand, itemImage) 
-          VALUES('".$item->itemName."','".$item->itemDescription."','".$item->itemPrice."','".$item->categoryID."','".$item->itembrandID."','".$item->itemImage."')";
+        $sqlInsert = "INSERT INTO item (itemName, itemDescription,itemPrice, id_category, id_itembrand, itemImage, activated) 
+          VALUES('".$item->itemName."','".$item->itemDescription."','".$item->itemPrice."','".$item->categoryID."','".$item->itembrandID."','".$item->itemImage."','".$item->activated."')";
         $res = mysqli_query($this->myconn, $sqlInsert);
         if($res){
             return true;
@@ -133,8 +133,8 @@ class DBConnect //create a class for make connection
     }
 
     function insertInvoiceItem(invoiceitem $ii){
-        $sqlInsert = "INSERT INTO invoiceitem (id_order, id_item, quantity, price) 
-          VALUES('".$ii->orderID."','".$ii->itemID."','".$ii->quantity."','". $ii->price."')";
+        $sqlInsert = "INSERT INTO invoiceitem (id_order, id_item, quantity, price,totalPrice) 
+          VALUES('".$ii->orderID."','".$ii->itemID."','".$ii->quantity."','". $ii->price."','". $ii->tprice."')";
         $res = mysqli_query($this->myconn, $sqlInsert);
         if($res){
             return true;
@@ -145,8 +145,9 @@ class DBConnect //create a class for make connection
     }
 
     function insertOrder(order $order){
-        $sqlInsert = "INSERT INTO order (id_user, statusCompleted,orderDate, statusCollected, totalPrice) 
+        $sqlInsert = "INSERT INTO `order` (id_user, statusCompleted,orderDate, statusCollected, totalPrice) 
           VALUES('".$order->userID."','".$order->statusCompleted."','".$order->orderDate."','".$order->statusCollected."','".$order->totalPrice."')";
+        echo $sqlInsert;
         $res = mysqli_query($this->myconn, $sqlInsert);
 
         if($res){
@@ -159,8 +160,8 @@ class DBConnect //create a class for make connection
     }
 
     function insertPayment(payment $payment){
-        $sqlInsert = "INSERT INTO payment (id_order, paymentType,paymentAccount, completed) 
-          VALUES('".$payment->orderID."','".$payment->paymentType."','".$payment->paymentAccount."','". $payment->completed."')";
+        $sqlInsert = "INSERT INTO payment (id_order,  completed) 
+          VALUES('".$payment->orderID."','". $payment->completed."')";
         $res = mysqli_query($this->myconn, $sqlInsert);
         if($res){
             return true;
@@ -252,7 +253,8 @@ class DBConnect //create a class for make connection
         itemPrice = '".$item->itemPrice."', 
         id_category ='".$item->categoryID ."', 
         id_itembrand = '".$item->itembrandID."', 
-        itemImage ='".$item->itemImage."' 
+        itemImage ='".$item->itemImage."' ,
+        activated ='".$item->activated."' 
         WHERE id_item = '".$item->itemID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
@@ -323,8 +325,6 @@ class DBConnect //create a class for make connection
     function updatePayment(payment $payment){
         $sqlUpdate = "UPDATE payment 
         SET id_order= '".$payment->orderID."' , 
-        paymentType ='".$payment->paymentType."' ,
-        paymentAccount ='".$payment->paymentAccount."' , 
         completed = '".$payment->completed."' 
         WHERE id_payment= '".$payment->paymentID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);

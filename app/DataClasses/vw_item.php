@@ -15,7 +15,7 @@ class vw_item
     public $itemPrice;
 
     public $itemImage;
-
+    public $activated;
     public $itembrandID;
     public $itembrandName;
 
@@ -44,7 +44,9 @@ class vw_item
     public function __setCategoryName($categoryName, $val){
         return $this->$categoryName=$val;
     }
-
+    public function __getActivated($activated){
+        return $this->$activated;
+    }
 
     //get
     public function __getItembrandID($itembrandID){
@@ -63,7 +65,9 @@ class vw_item
         return $this->$itembrandName=$val;
     }
 
-
+    public function __setActivated($activated, $val){
+        return $this->$activated=$val;
+    }
 
     //get
     public function __getItemID($itemID){

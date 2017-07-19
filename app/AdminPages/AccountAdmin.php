@@ -4,6 +4,7 @@ if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
+
     $user= unserialize($_COOKIE["account"]);
 }
 ?>

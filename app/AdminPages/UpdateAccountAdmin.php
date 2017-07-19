@@ -1,10 +1,13 @@
 <?php
-include "../DataClasses/user.php";
-include "../Processing/updateAccountProcess.php";
+
+
 if(!isset($_COOKIE["account"])) {
-    header('Location: ' . '../../index.php'); /* Redirect browser */
+    header('Location: ' . '../../../index.php'); /* Redirect browser */
     die();
 } else {
+    include "../DataClasses/user.php";
+    include "../Processing/updateAccountProcessAdmin.php";
+
     $user= unserialize($_COOKIE["account"]);
 }
 ?>

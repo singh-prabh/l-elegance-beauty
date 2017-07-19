@@ -1,6 +1,6 @@
 <?php
 if(!isset($_COOKIE["account"])) {
-    header('Location: ' . '../../index.php'); /* Redirect browser */
+    header('Location: ' . '../../../index.php'); /* Redirect browser */
     die();
 } else {
 
@@ -60,17 +60,12 @@ include "../DatabaseConnection/DBConnect.php";
             padding: 8px;
         }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
+
         .btn-update {
             background-color: #47c4b6;
             color: white;
         }
-        .btn-remove {
-            background-color: #333333;
-            color: white;
-        }
+
 
     </style>
 </head>
@@ -143,7 +138,7 @@ include '../Structure/AdminHeader.php'
                          <td>$s->servicePrice</td>
                          <td>$s->categoryName</td>
                          <td><button onclick="productUpdate($s->serviceID);" class="btn btn-sm btn-update">Update Treatment</button></td>
-                         <td><button onclick="productRemove($s->serviceID);" class="btn btn-sm btn-remove">Remove Treatment</button></td>
+                         <td><button onclick="productRemove($s->serviceID);" class="btn btn-sm ">Remove Treatment</button></td>
                     </tr>
 EOD;
 

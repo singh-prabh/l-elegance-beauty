@@ -11,6 +11,7 @@ class logintimestamp
     public $logintimestampID;
     public $timestamp;
     public $userID;
+    public $email;
 
     public function __construct()
     {
@@ -30,6 +31,10 @@ class logintimestamp
         return $this->$statusCompleted;
     }
 
+    public function __getEmail($email){
+        return $this->$email;
+    }
+
     //set
     public function __setLogintimestampID($logintimestampID, $val){
         return $this->$logintimestampID=$val;
@@ -41,6 +46,10 @@ class logintimestamp
 
     public function __setUserID($userID, $val){
         return $this->$userID=$val;
+    }
+
+    public function __setEmail($email, $val){
+        return $this->$email=$val;
     }
 
 }
