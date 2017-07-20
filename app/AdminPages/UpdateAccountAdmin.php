@@ -28,9 +28,12 @@ if(!isset($_COOKIE["accountA"])) {
 
 }
 
-    include "../Processing/updateAccountProcessAdmin.php";
-
+include "../Processing/updateAccountProcessAdmin.php";
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>

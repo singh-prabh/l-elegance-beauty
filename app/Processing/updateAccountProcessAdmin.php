@@ -5,14 +5,14 @@
  * Date: 2017-07-06
  * Time: 12:29 PM
  */
-if(!isset($_COOKIE["account"])) {
+if(!isset($_COOKIE["accountA"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
-    include "../DataClasses/user.php";
-    include "../DatabaseConnection/DBConnect.php";
+
+
     $dbOne = new DBConnect();
-    $user = unserialize($_COOKIE["account"]);
+    $user = unserialize($_COOKIE["accountA"]);
 
     if ($dbOne->connectToDatabase()) {
 
@@ -37,7 +37,7 @@ if (empty($_POST) ){
 
 }
 else {
-    include "../DatabaseConnection/DBConnect.php";
+
     session_start();
     $dbOne = new DBConnect();
     $CurUser= unserialize($_COOKIE["account"]);

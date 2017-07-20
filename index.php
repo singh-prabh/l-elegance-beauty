@@ -1,8 +1,5 @@
 <?php
 require 'app/Register_LogIn/loginProcess.php';
-if(!isset($_COOKIE["account"])) {
-
-}
 
 ?>
 
