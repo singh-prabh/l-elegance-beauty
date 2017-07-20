@@ -28,13 +28,7 @@ if(!isset($_COOKIE["accountA"])) {
 
 }
 
-if(!isset($_COOKIE["accountA"])) {
-    header('Location: ' . '../../index.php'); /* Redirect browser */
-    die();
-} else {
 
-
-}
 ?>
 <!DOCTYPE html>
 <html>

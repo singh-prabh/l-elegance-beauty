@@ -28,15 +28,8 @@ if(!isset($_COOKIE["accountA"])) {
 
 }
 
-if(!isset($_COOKIE["accountA"])) {
-    header('Location: ' . '../../../index.php'); /* Redirect browser */
-    die();
-} else {
-
     include "../Processing/updateAccountProcessAdmin.php";
 
-    $user= unserialize($_COOKIE["accountA"]);
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -101,7 +94,7 @@ if(!isset($_COOKIE["accountA"])) {
 </head>
 <body>
 <?php
-include '../Structure/AdminHeader.php'
+include '../Structure/AdminHeader.php';
 ?>
 <div>
     <p class="form-title">
