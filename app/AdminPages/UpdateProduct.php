@@ -34,54 +34,39 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
 
     include "../Processing/updateProductProcess.php";
-    include "../DataClasses/service.php";
-    include "../DataClasses/category.php";
+    include "../DataClasses/vw_item.php";
 
     $user= unserialize($_COOKIE["accountA"]);
     $iID=$_GET["id"];
 
-    $dbOne = new DBConnect();
+$dbOne = new DBConnect();
 
-    if ($dbOne->connectToDatabase()) {
+if ($dbOne->connectToDatabase()) {
 
-        $sqlSelect = "SELECT * FROM service WHERE id_service = '".$iID."'";
-        $res = mysqli_query($dbOne->myconn, $sqlSelect);
-
-        $sqlCat = "SELECT * FROM category ";
-        $resCat = mysqli_query($dbOne->myconn, $sqlCat);
+    $sqlSelect = "SELECT * FROM vw_item WHERE ItemID = '".$iID."'";
+    $res = mysqli_query($dbOne->myconn, $sqlSelect);
 
 
-        if ($res && $resCat) {
-            $ac=array();
-            while($resArrayCat=mysqli_fetch_array($resCat, MYSQLI_ASSOC)){
-                $catOne = new service();
-                $catOne->categoryID = $resArrayCat["id_category"];
-                $catOne->categoryName = $resArrayCat["categoryName"];
-                array_push($ac,$catOne);
-            }
+    if ($res) {
 
 
-            if($resArray = mysqli_fetch_array($res, MYSQLI_ASSOC)){
-                $serviceOne = new service();
-                $serviceOne->serviceID = $resArray["id_service"];
-                $serviceOne->serviceName = $resArray["serviceName"];
-                $serviceOne->serviceDescription = $resArray["serviceDescription"];
-                $serviceOne->servicePrice = $resArray["servicePrice"];
-                $serviceOne->categoryID = $resArray["id_category"];
-                foreach($ac as $struct) {
-                    if ($serviceOne->categoryID == $struct->categoryID) {
-                        $item = $struct->categoryName;
-                        break;
-                    }
-                }
-                $serviceOne->categoryName = $item;
+        if($resArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+            $One = new vw_item();
+            $One->itemID = $resArray["ItemID"];
+            $One->itemName = $resArray["ItemName"];
+            $One->itemDescription = $resArray["ItemDescription"];
+            $One->itemPrice = $resArray["ItemPrice"];
+            $One->itembrandName = $resArray["Brand"];
+            $One->categoryName = $resArray["Category"];
+            $One->itemImage = $resArray["Image"];
+            $One->activated = $resArray["activated"];
+            $One->categoryID= $resArray["CategoryID"];
+            $One->itembrandID= $resArray["BrandID"];
 
-            }
 
         }
-
     }
-
+}
 }
 ?>
 <!DOCTYPE html>
@@ -96,7 +81,8 @@ if(!isset($_COOKIE["accountA"])) {
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-
+        /* BOOTSTRAP 3.x GLOBAL STYLES
+-------------------------------------------------- */
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
@@ -147,7 +133,7 @@ include '../Structure/AdminHeader.php'
 ?>
 <div>
     <p class="form-title">
-        Treatments</p>
+        Products</p>
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
@@ -158,40 +144,54 @@ include '../Structure/AdminHeader.php'
                 <div class="panel-heading">
                     <span class="glyphicon "></span></div>
                 <div class="panel-body">
-                    <form action = "UpdateService.php" method= "post" class="form-horizontal" role="form">
+                    <form action = "UpdateProduct.php" method= "post" class="form-horizontal" role="form">
                         <div class="form-group">
-                            <label for="serviceID" class="col-sm-3 control-label">
-                                Treatment ID</label>
+                            <label for="itemID" class="col-sm-3 control-label">
+                                Product ID</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="sID" name="sID" placeholder="Treatment ID" value="<?php echo $serviceOne->serviceID ?>" readonly>
+                                <input type="text" class="form-control" id="itemID" name="itemID" placeholder="Product ID" value="<?php echo $One->itemID ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="sName" class="col-sm-3 control-label">
-                                Treatment Name</label>
+                            <label for="itemName" class="col-sm-3 control-label">
+                                Product Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="sName" name="sName" placeholder="Treatment Name" value="<?php echo $serviceOne->serviceName ?>" required>
+                                <input type="text" class="form-control" id="itemName" name="itemName" placeholder="Product Name" value="<?php echo $One->itemName ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="sDescription" class="col-sm-3 control-label">
-                                Treatment Description</label>
+                            <label for="itemDescription" class="col-sm-3 control-label">
+                                Product Description</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="sDescription" name="sDescription" placeholder="Treatment Description" value="<?php echo $serviceOne->serviceDescription ?>" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="price" class="col-sm-3 control-label">
-                               Price</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $serviceOne->servicePrice ?>" required>
+                                <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="Product Description" value="<?php echo $One->itemDescription ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="category" class="col-sm-3 control-label">
                                 Category</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="category" name="category" placeholder="Category" value="<?php echo $serviceOne->categoryName ?>" required>
+                                <input type="text" class="form-control" id="category" name="category" placeholder="Category" value="<?php echo $One->categoryName ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="brand" class="col-sm-3 control-label">
+                                Brand</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="brand" name="brand" placeholder="Brand" value="<?php echo $One->itembrandName ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="price" class="col-sm-3 control-label">
+                                Product Price</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $One->itemPrice?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="activated" class="col-sm-3 control-label">
+                                Activated</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="activated" name="activated" placeholder="Activated" value="<?php if($One->activated==1){ echo "True";}else{echo "False";}?>" required>
                             </div>
                         </div>
                         <div class="form-group last">

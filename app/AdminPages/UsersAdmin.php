@@ -186,7 +186,7 @@ include '../Structure/footer.php'
 ?>
 <script>
     function userUpdate(num){
-        window.location.href = "UserUpdate.php?id=" + num;
+        window.location.href = "UpdateUser.php?id=" + num;
     }
 </script>
 <script src="../packages/jquery/jquery-3.2.1.min.js"></script>

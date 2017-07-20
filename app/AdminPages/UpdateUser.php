@@ -33,9 +33,39 @@ if(!isset($_COOKIE["accountA"])) {
     die();
 } else {
 
-    include "../Processing/updateAccountProcessAdmin.php";
-
+    include "../Processing/updateUserProcess.php";
+    $iID=$_GET["id"];
     $user= unserialize($_COOKIE["accountA"]);
+    $dbOne = new DBConnect();
+
+    if ($dbOne->connectToDatabase()) {
+
+        $sqlSelect = "SELECT * FROM user WHERE id_user= '".$iID."'";
+        $res = mysqli_query($dbOne->myconn, $sqlSelect);
+
+
+
+
+        if ($res) {
+
+            if($resArray = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+                $uOne = new user();
+                $uOne->userID = $resArray["id_user"];
+                $uOne->userName = $resArray["userName"];
+                $uOne->userSurname = $resArray["userSurname"];
+                $uOne->userContact = $resArray["userContact"];
+                $uOne->userEmail = $resArray["userEmail"];
+                $uOne->userPassword = $resArray["userPassword"];
+                $uOne->activated = $resArray["activated"];
+                $uOne->admin = $resArray["admin"];
+
+
+
+            }
+
+        }
+
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -116,40 +146,61 @@ include '../Structure/AdminHeader.php'
                 <div class="panel-heading">
                     <span class="glyphicon "></span></div>
                 <div class="panel-body">
-                    <form action = "UpdateAccountAdmin.php" method= "post" class="form-horizontal" role="form">
+                    <form action = "UpdateUser.php" method= "post" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="inputID" class="col-sm-3 control-label">
+                                User ID</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputID" name="inputID" placeholder="ID" value="<?php echo $uOne->userID ?>" readonly>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="inputName" class="col-sm-3 control-label">
                                 Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="<?php echo $user->userName ?>" required>
+                                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="<?php echo $uOne->userName ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputSurname" class="col-sm-3 control-label">
                                 Surname</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Surname" value="<?php echo $user->userSurname ?>" required>
+                                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Surname" value="<?php echo $uOne->userSurname ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputContact" class="col-sm-3 control-label">
                                 Contact Number</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputContact" name="inputContact" placeholder="Contact Number" value="<?php echo $user->userContact ?>" required>
+                                <input type="text" class="form-control" id="inputContact" name="inputContact" placeholder="Contact Number" value="<?php echo $uOne->userContact ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-3 control-label">
                                 Email</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" value="<?php echo $user->userEmail ?>" required>
+                                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" value="<?php echo $uOne->userEmail ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-3 control-label">
                                 Password</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" value="<?php echo $user->userPassword ?>" required>
+                                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" value="<?php echo $uOne->userPassword ?>" readonly="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAdmin" class="col-sm-3 control-label">
+                                Admin</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="admin" name="admin" placeholder="Admin" value="<?php if($uOne->admin==1){ echo "True";}else{echo "False";} ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="activated" class="col-sm-3 control-label">
+                                Activated</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="activated" name="activated" placeholder="Activated" value="<?php if($uOne->activated==1){ echo "True";}else{echo "False";} ?>" required>
                             </div>
                         </div>
                         <div class="form-group last">

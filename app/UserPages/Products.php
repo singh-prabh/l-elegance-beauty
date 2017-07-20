@@ -32,7 +32,7 @@ if(!isset($_COOKIE["account"])) {
     die();
 } else {
         include '../DataClasses/vw_item.php';
-    include '../DatabaseConnection/DBConnect.php';
+    //include '../DatabaseConnection/DBConnect.php';
         }
 ?>
 

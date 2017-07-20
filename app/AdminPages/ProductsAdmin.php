@@ -184,7 +184,7 @@ include '../Structure/footer.php'
 <script src="../packages/bootstrap/js/bootstrap.min.js"></script>
 <script>
     function productUpdate(num){
-        window.location.href = "ItemUpdate.php?id=" + num;
+        window.location.href = "UpdateProduct.php?id=" + num;
     }
 </script>
 <script>

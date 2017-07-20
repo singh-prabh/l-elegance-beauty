@@ -165,8 +165,8 @@ include '../Structure/AdminHeader.php'
                          <td>$s->serviceDescription</td>
                          <td>$s->servicePrice</td>
                          <td>$s->categoryName</td>
-                         <td><button onclick="productUpdate($s->serviceID);" class="btn btn-sm btn-update">Update Treatment</button></td>
-                         <td><button onclick="productRemove($s->serviceID);" class="btn btn-sm ">Remove Treatment</button></td>
+                         <td><button onclick="sUpdate($s->serviceID);" class="btn btn-sm btn-update">Update Treatment</button></td>
+                         <td><button onclick="sRemove($s->serviceID);" class="btn btn-sm ">Remove Treatment</button></td>
                     </tr>
 EOD;
 
@@ -188,12 +188,12 @@ include '../Structure/footer.php'
 <script src="../packages/jquery/jquery-3.2.1.min.js"></script>
 <script src="../packages/bootstrap/js/bootstrap.min.js"></script>
 <script>
-    function productUpdate(num){
-        window.location.href = "ServiceUpdate.php?id=" + num;
+    function sUpdate(num){
+        window.location.href = "UpdateService.php?id=" + num;
     }
 </script>
 <script>
-    function productRemove(num){
+    function sRemove(num){
         window.location.href = "ServiceRemove.php?id=" + num;
 
     }
