@@ -1,5 +1,5 @@
 <?php
-header("Cache-Control", "no-cache, no-store, must-revalidate");
+
 if(!isset($_COOKIE["accountA"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
