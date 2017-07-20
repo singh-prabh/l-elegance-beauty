@@ -31,13 +31,13 @@ if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
-    include "../DataClasses/user.php";
+    //include "../DataClasses/user.php";
     include "../DataClasses/vw_cart.php";
     include "../Processing/ForeignExchange.php";
 
     $user= unserialize($_COOKIE["account"]);
 
-    include "../DatabaseConnection/DBConnect.php";
+    //include "../DatabaseConnection/DBConnect.php";
 }
 ?>
 <!DOCTYPE html>

@@ -27,8 +27,8 @@ if(!isset($_COOKIE["account"])) {
     }
 
 }
-include "../DataClasses/user.php";
-include "../Processing/updateAccountProcess.php";
+//include "../DataClasses/user.php";
+//include "../Processing/updateAccountProcess.php";
 if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();

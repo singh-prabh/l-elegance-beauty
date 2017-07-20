@@ -36,7 +36,7 @@ if(!isset($_COOKIE["account"])) {
 ?>
 <?php
 include "../DataClasses/service.php";
-include "../DatabaseConnection/DBConnect.php";
+//include "../DatabaseConnection/DBConnect.php";
 ?>
 <!DOCTYPE html>
 <html>

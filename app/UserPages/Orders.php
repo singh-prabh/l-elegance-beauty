@@ -31,8 +31,8 @@ if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
-    include '../DatabaseConnection/DBConnect.php';
-    include '../DataClasses/user.php';
+    //include '../DatabaseConnection/DBConnect.php';
+    //include '../DataClasses/user.php';
     include '../DataClasses/vw_order.php';
     include '../DataClasses/order.php';
 

@@ -29,7 +29,7 @@ if(!isset($_COOKIE["account"])) {
 
 }
 include "../DataClasses/vw_item.php";
-include "../DatabaseConnection/DBConnect.php";
+//include "../DatabaseConnection/DBConnect.php";
 
 if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
