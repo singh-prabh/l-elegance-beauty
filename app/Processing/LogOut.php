@@ -1,5 +1,5 @@
 <?php
-header("Cache-Control", "no-cache, no-store, must-revalidate");
+
 unset($_COOKIE["account"]);
 date_default_timezone_set('Africa/Johannesburg');
 $res = setcookie("account", '', time() - 36000, "/");
