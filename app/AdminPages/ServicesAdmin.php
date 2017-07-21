@@ -94,6 +94,16 @@ include "../DataClasses/service.php";
             color: white;
         }
 
+        .btn-add {
+
+
+            text-align: center;
+            padding: 10px;
+
+
+
+        }
+
 
     </style>
 </head>
@@ -108,6 +118,13 @@ include '../Structure/AdminHeader.php'
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
 <div class="container marketing">
+    <div align="left">
+        <button onclick="AddService()" class="btn btn-sm btn-add"><b>Add Treatment</b></button>&nbsp;&nbsp;
+        <button onclick="AddCategory()" class="btn btn-sm btn-add"><b>Add Category</b></button>
+
+
+    </div>
+    <br/>
     <table>
         <tr>
             <th>Treatment Name</th>
@@ -194,7 +211,25 @@ include '../Structure/footer.php'
 </script>
 <script>
     function sRemove(num){
-        window.location.href = "ServiceRemove.php?id=" + num;
+        var ok =window.confirm("Are you sure you want to remove this treatment?");
+        if(ok==true){
+            window.location.href = "ServiceRemove.php?id=" + num;
+        }
+        else{
+
+        }
+
+    }
+    function AddService(){
+
+        window.location.href = "AddTreatment.php";
+
+
+    }
+    function AddCategory(){
+
+        window.location.href = "AddCategory.php";
+
 
     }
 </script>

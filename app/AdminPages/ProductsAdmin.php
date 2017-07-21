@@ -36,6 +36,7 @@ if(!isset($_COOKIE["accountA"])) {
 ?>
 <?php
 include "../DataClasses/vw_item.php";
+
 //include "../DatabaseConnection/DBConnect.php";
 ?>
 <!DOCTYPE html>
@@ -93,6 +94,15 @@ include "../DataClasses/vw_item.php";
             background-color: #47c4b6;
             color: white;
         }
+        .btn-add {
+
+
+            text-align: center;
+            padding: 10px;
+
+
+
+        }
 
 
     </style>
@@ -101,13 +111,21 @@ include "../DataClasses/vw_item.php";
 <?php
 include '../Structure/AdminHeader.php'
 ?>
-<div>
+<div align="center">
     <p class="form-title">
         Products</p>
+
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
 <div class="container marketing">
+
+    <div align="left">
+        <button onclick="addProduct();" class="btn btn-sm btn-add"><b>Add Product</b></button>&nbsp;&nbsp;
+        <button onclick="addCategory();" class="btn btn-sm btn-add"><b>Add Category</b></button>&nbsp;&nbsp;
+        <button onclick="addBrand();" class="btn btn-sm btn-add"><b>Add Brand</b></button>
+    </div>
+    <br/>
     <table>
         <tr>
             <th>Product ID</th>
@@ -189,7 +207,31 @@ include '../Structure/footer.php'
 </script>
 <script>
     function productRemove(num){
-        window.location.href = "ItemRemove.php?id=" + num;
+        var ok =window.confirm("Are you sure you want to remove this product?");
+        if(ok==true){
+            window.location.href = "ItemRemove.php?id=" + num;
+        }
+        else{
+
+        }
+
+    }
+    function addProduct(){
+
+            window.location.href = "AddProduct.php";
+
+
+    }
+    function addCategory(){
+
+        window.location.href = "AddCategory.php";
+
+
+    }
+    function addBrand(){
+
+        window.location.href = "AddBrand.php";
+
 
     }
 </script>
