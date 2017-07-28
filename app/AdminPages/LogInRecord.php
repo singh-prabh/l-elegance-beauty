@@ -48,12 +48,11 @@ include "../DataClasses/logintimestamp.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>L'Elegance Beauty-Treatments</title>
+    <title>L'Elegance Beauty-LogIn Records</title>
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;

@@ -38,8 +38,7 @@ if (empty($_POST) ){
 }
 else {
 
-    //include '../DataClasses/user.php';
-    //include '../DatabaseConnection/DBConnect.php';
+
     include '../DataClasses/shoppingcartitem.php';
     include '../DataClasses/item.php';
 

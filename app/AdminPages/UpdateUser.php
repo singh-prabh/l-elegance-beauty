@@ -76,12 +76,11 @@ if(!isset($_COOKIE["accountA"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>L'Elegance Beauty-myAccount</title>
+    <title>L'Elegance Beauty-User</title>
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
@@ -135,7 +134,7 @@ include '../Structure/AdminHeader.php'
 ?>
 <div>
     <p class="form-title">
-        my-Account</p>
+        Users</p>
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 

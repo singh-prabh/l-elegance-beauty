@@ -74,17 +74,6 @@ class DBConnect //create a class for make connection
         }
     }
 
-    function insertShoppingCart(shoppingcart $shoppingcart){
-        $sqlInsert = "INSERT INTO shoppingcart (id_user) VALUES('".$shoppingcart->userID."')";
-        $res = mysqli_query($this->myconn, $sqlInsert);
-        if($res){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
     function insertShoppingCartItem(shoppingcartitem $sci){
         $sqlInsert = "INSERT INTO shoppingcartitem (id_item, id_user,quantity,totalPrice) 
           VALUES('".$sci->itemID."','".$sci->userID."','".$sci->quantity."','".$sci->totalPrice."')";
@@ -145,26 +134,14 @@ class DBConnect //create a class for make connection
     }
 
     function insertOrder(order $order){
-        $sqlInsert = "INSERT INTO `order` (id_user, statusCompleted,orderDate, statusCollected, totalPrice) 
-          VALUES('".$order->userID."','".$order->statusCompleted."','".$order->orderDate."','".$order->statusCollected."','".$order->totalPrice."')";
+        $sqlInsert = "INSERT INTO `order` (id_user, statusCompleted,orderDate, statusCollected, totalPrice, paymentCompleted) 
+          VALUES('".$order->userID."','".$order->statusCompleted."','".$order->orderDate."','".$order->statusCollected."','".$order->totalPrice."','".$order->paymentCompleted."')";
         echo $sqlInsert;
         $res = mysqli_query($this->myconn, $sqlInsert);
 
         if($res){
             $id = mysqli_insert_id($this->myconn);
             return $id;
-        }
-        else{
-            return false;
-        }
-    }
-
-    function insertPayment(payment $payment){
-        $sqlInsert = "INSERT INTO payment (id_order,  completed) 
-          VALUES('".$payment->orderID."','". $payment->completed."')";
-        $res = mysqli_query($this->myconn, $sqlInsert);
-        if($res){
-            return true;
         }
         else{
             return false;
@@ -209,19 +186,6 @@ class DBConnect //create a class for make connection
             admin = '".$user->admin."'
         WHERE id_user ='". $user->userID."'";
 
-        $res = mysqli_query($this->myconn, $sqlUpdate);
-        if($res){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    function updateShoppingCart(shoppingcart $shoppingcart){
-        $sqlUpdate = "UPDATE shoppingcart 
-        SET id_user ='".$shoppingcart->userID."'
-        WHERE id_shoppingcart = '".$shoppingcart->shoppingcartID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -311,22 +275,11 @@ class DBConnect //create a class for make connection
         $sqlUpdate = "UPDATE order 
         SET id_user ='".$order->userID."', 
         statusCompleted ='".$order->statusCompleted."',
-        orderDate ='".$order->orderDate."'
+        orderDate ='".$order->orderDate."',
+        statusCollected ='".$order->statusCollected."',
+        paymentCompleted ='".$order->paymentCompleted."',
+        totalPrice ='".$order->totalPrice."'
         WHERE id_order= '".$order->orderID."'";
-        $res = mysqli_query($this->myconn, $sqlUpdate);
-        if($res){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    function updatePayment(payment $payment){
-        $sqlUpdate = "UPDATE payment 
-        SET id_order= '".$payment->orderID."' , 
-        completed = '".$payment->completed."' 
-        WHERE id_payment= '".$payment->paymentID."'";
         $res = mysqli_query($this->myconn, $sqlUpdate);
         if($res){
             return true;
@@ -359,18 +312,6 @@ class DBConnect //create a class for make connection
         $sqlDelete = "DELETE FROM user 
         WHERE id_user ='". $user."'";
 
-        $res = mysqli_query($this->myconn, $sqlDelete);
-        if($res){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    function deleteShoppingCart($shoppingcart){
-        $sqlDelete = "DELETE FROM shoppingcart 
-        WHERE id_shoppingcart = '".$shoppingcart."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;
@@ -443,18 +384,6 @@ class DBConnect //create a class for make connection
     function deleteOrder($order){
         $sqlDelete = "DELETE FROM order 
         WHERE id_order= '".$order."'";
-        $res = mysqli_query($this->myconn, $sqlDelete);
-        if($res){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    function deletePayment($payment){
-        $sqlDelete = "DELETE FROM payment 
-        WHERE id_payment= '".$payment."'";
         $res = mysqli_query($this->myconn, $sqlDelete);
         if($res){
             return true;

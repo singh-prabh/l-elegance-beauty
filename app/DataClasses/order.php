@@ -15,6 +15,7 @@ class order
     public $orderDate;
     public $statusCollected;
     public $totalPrice;
+    public $paymentCompleted;
 
 
     public function __construct()
@@ -27,6 +28,9 @@ class order
         return $this->$orderID;
     }
 
+    public function __getPaymentCompleted($paymentCompleted){
+        return $this->$paymentCompleted;
+    }
     public function __getUserID($userID){
         return $this->$userID;
     }
@@ -48,6 +52,10 @@ class order
     //set
     public function __setOrderID($orderID, $val){
         return $this->$orderID=$val;
+    }
+
+    public function __setPaymentCompleted($paymentCompleted, $val){
+        return $this->$paymentCompleted=$val;
     }
 
     public function __setUserID($userID, $val){

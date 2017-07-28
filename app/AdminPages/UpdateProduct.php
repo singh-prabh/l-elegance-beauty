@@ -81,8 +81,7 @@ if ($dbOne->connectToDatabase()) {
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;

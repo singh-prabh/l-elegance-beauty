@@ -1,6 +1,6 @@
 <?php
 require 'app/Register_LogIn/loginProcess.php';
-
+//<link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +12,8 @@ require 'app/Register_LogIn/loginProcess.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <title>L'Elegance Beauty</title>
-    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="app/Images/mycss.css" crossorigin="anonymous">
+
     <style>
         body {
             background: url(app/Images/380566.jpg) no-repeat center center fixed;

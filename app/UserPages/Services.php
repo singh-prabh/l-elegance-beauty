@@ -36,7 +36,7 @@ if(!isset($_COOKIE["account"])) {
 ?>
 <?php
 include "../DataClasses/service.php";
-//include "../DatabaseConnection/DBConnect.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,15 +51,12 @@ include "../DataClasses/service.php";
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
             padding-top: 30px;
         }
-
-
 
 
         p.form-title

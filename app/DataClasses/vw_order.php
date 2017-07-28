@@ -15,6 +15,7 @@ class vw_order
     public $orderStatusCol;
     public $orderDate;
     public $ordertotalPrice;
+    public $paymentCompleted;
     public $UserID;
     public $invoiceitemID;
     public $invoiceitemtotalprice;
@@ -46,6 +47,13 @@ class vw_order
     }
     public function __getOrderID($orderID){
         return $this->$orderID;
+    }
+    public function __getPaymentCompleted($paymentCompleted){
+        return $this->$paymentCompleted;
+    }
+
+    public function __setPaymentCompleted($paymentCompleted, $val){
+        return $this->$paymentCompleted=$val;
     }
 
     public function __getOrderStatusCom($orderStatusCom){

@@ -37,7 +37,7 @@ if(!isset($_COOKIE["accountA"])) {
 <?php
 include "../DataClasses/vw_item.php";
 
-//include "../DatabaseConnection/DBConnect.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,16 +52,12 @@ include "../DataClasses/vw_item.php";
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
             padding-top: 30px;
         }
-
-
-
 
         p.form-title
         {

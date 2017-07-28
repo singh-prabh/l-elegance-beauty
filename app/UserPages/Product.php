@@ -29,7 +29,7 @@ if(!isset($_COOKIE["account"])) {
 
 }
 include "../DataClasses/vw_item.php";
-//include "../DatabaseConnection/DBConnect.php";
+
 
 if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
@@ -80,8 +80,7 @@ if(!isset($_COOKIE["account"])) {
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
@@ -264,13 +263,16 @@ include '../Structure/header.php'
 <?php
 include '../Structure/footer.php'
 ?>
+
 <script src="../packages/jquery/jquery-3.2.1.min.js"></script>
 <script src="../packages/bootstrap/js/bootstrap.min.js"></script>
+
 <script>
     (function ($) {
         $('.spinner .btn:first-of-type').on('click', function() {
             $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
         });
+
         $('.spinner .btn:last-of-type').on('click', function() {
             if($('.spinner input').val()==1){
 

@@ -47,8 +47,7 @@ if(!isset($_COOKIE["accountA"])) {
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
@@ -57,8 +56,7 @@ if(!isset($_COOKIE["accountA"])) {
 
 
 
-        /* CUSTOMIZE THE NAVBAR
-        -------------------------------------------------- */
+
 
         .img-circle {
             width: 200px;
@@ -67,12 +65,7 @@ if(!isset($_COOKIE["accountA"])) {
 
 
 
-        /* CUSTOMIZE THE CAROUSEL
-        -------------------------------------------------- */
 
-
-
-        /* Declare heights because of positioning of img element */
         .carousel .item {
             height: 400px;
             background-color:#555;
@@ -86,16 +79,13 @@ if(!isset($_COOKIE["accountA"])) {
 
 
 
-        /* MARKETING CONTENT
-        -------------------------------------------------- */
 
-        /* Pad the edges of the mobile views a bit */
         .marketing {
             padding-left: 15px;
             padding-right: 15px;
         }
 
-        /* Center align the text within the three columns below the carousel */
+
         .marketing .col-lg-4 {
             text-align: center;
             margin-bottom: 20px;
@@ -113,28 +103,27 @@ if(!isset($_COOKIE["accountA"])) {
 
 
 
-        /* RESPONSIVE CSS
-        -------------------------------------------------- */
+
 
         @media (min-width: 768px) {
 
-            /* Remve the edge padding needed for mobile */
+
             .marketing {
                 padding-left: 0;
                 padding-right: 0;
             }
 
-            /* Navbar positioning foo */
+
             .navbar-wrapper {
                 margin-top: 20px;
-                margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+                margin-bottom: -90px;
             }
-            /* The navbar becomes detached from the top, so we round the corners */
+
             .navbar-wrapper .navbar {
                 border-radius: 4px;
             }
 
-            /* Bump up size of carousel content */
+
             .carousel-caption p {
                 margin-bottom: 20px;
                 font-size: 21px;
@@ -170,7 +159,7 @@ include '../Structure/AdminHeader.php'
 
 <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
+
     <div class="row">
         <div class="col-md-4 text-center col-sm-12">
             <img class="img-circle" src="../Images/pic1.jpg">

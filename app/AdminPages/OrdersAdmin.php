@@ -53,8 +53,7 @@ if(!isset($_COOKIE["accountA"])) {
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
@@ -143,6 +142,7 @@ include '../Structure/AdminHeader.php'
                     $orderr->orderStatusCol = $resArray["orderStatusCol"];
                     $orderr->orderDate = $resArray["orderDate"];
                     $orderr->totalPrice = $resArray["totalPrice"];
+                    $orderr->paymentCompleted = $resArray["paymentCompleted"];
 
                     $orderr->UserID = $resArray["UserID"];
                     $orderr->invoiceitemID = $resArray["invoiceitemID"];
@@ -177,6 +177,7 @@ include '../Structure/AdminHeader.php'
                         $orderO->orderDate = $resArrayO["orderDate"];
                         $orderO->statusCollected = $resArrayO["statusCollected"];
                         $orderO->totalPrice = $resArrayO["totalPrice"];
+                        $orderO->paymentCompleted = $resArrayO["paymentCompleted"];
 
                         array_push($aO, $orderO);
                     }
@@ -248,11 +249,11 @@ EOD;
 
             }
             else{
-                echo "poop1";
+                echo "p1";
             }
         }
         else{
-            echo "poop";
+            echo "p";
         }
         ?>
 

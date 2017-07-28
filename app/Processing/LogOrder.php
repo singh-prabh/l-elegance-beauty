@@ -38,7 +38,7 @@ include "../DataClasses/user.php";
 include "../DataClasses/order.php";
 include "../DataClasses/vw_cart.php";
 include "../DataClasses/invoiceitem.php";
-include "../DataClasses/payment.php";
+
 include "../DatabaseConnection/DBConnect.php";
 
 $user= unserialize($_COOKIE["account"]);
@@ -80,16 +80,13 @@ if ($dbOne->connectToDatabase()) {
         $order->orderDate= date("Y-m-d H:i:s");
         $order->statusCollected = 0;
         $order->totalPrice = $orderTotal;
+        $order->paymentCompleted = 1;
 
         $orderid = $dbOne->insertOrder($order);
         echo $orderid;
         if($orderid!=false){
 
-            $p = new payment();
-            $p->orderID = $orderid;
-            $p->completed = 1;
-            $pay = $dbOne->insertPayment($p);
-            if($pay){
+
                 $ok=true;
                 for($i=0;$i<count($a);$i++){
                     $c = $a[$i];
@@ -131,7 +128,7 @@ if ($dbOne->connectToDatabase()) {
                     }
 
                 }
-            }
+
 
         }
         else{

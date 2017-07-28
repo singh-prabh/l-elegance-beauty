@@ -31,8 +31,7 @@ if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
-    //include '../DatabaseConnection/DBConnect.php';
-    //include '../DataClasses/user.php';
+
     include '../DataClasses/vw_order.php';
     include '../DataClasses/order.php';
 
@@ -54,8 +53,7 @@ if(!isset($_COOKIE["account"])) {
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
@@ -143,6 +141,7 @@ include '../Structure/header.php'
                         $orderr->orderStatusCol = $resArray["orderStatusCol"];
                         $orderr->orderDate = $resArray["orderDate"];
                         $orderr->totalPrice = $resArray["totalPrice"];
+                        $orderr->paymentCompleted = $resArray["paymentCompleted"];
 
                         $orderr->UserID = $resArray["UserID"];
                         $orderr->invoiceitemID = $resArray["invoiceitemID"];
@@ -177,6 +176,7 @@ include '../Structure/header.php'
                             $orderO->orderDate = $resArrayO["orderDate"];
                             $orderO->statusCollected = $resArrayO["statusCollected"];
                             $orderO->totalPrice = $resArrayO["totalPrice"];
+                            $orderO->paymentCompleted = $resArrayO["paymentCompleted"];
 
                             array_push($aO, $orderO);
                         }
@@ -242,11 +242,11 @@ include '../Structure/header.php'
 
                 }
                 else{
-                    echo "poop1";
+                    echo "p1";
                 }
             }
             else{
-                echo "poop";
+                echo "p";
             }
         ?>
 
