@@ -40,7 +40,7 @@ else {
 
     session_start();
     $dbOne = new DBConnect();
-    $CurUser= unserialize($_COOKIE["account"]);
+    $CurUser= unserialize($_COOKIE["accountA"]);
     $CurUser->userName = $_POST['inputName'];
     $CurUser->userSurname = $_POST['inputSurname'];
     $CurUser->userContact = $_POST['inputContact'];
@@ -57,7 +57,7 @@ else {
 
         if ($updateUser==true) {
             $_SESSION['errors'] = array("true");
-            $cookie_name = "account";
+            $cookie_name = "accountA";
             $cookie_value = $CurUser;
             setcookie($cookie_name, serialize($cookie_value), 0, "/");
         }

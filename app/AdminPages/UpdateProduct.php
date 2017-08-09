@@ -32,12 +32,22 @@ if(!isset($_COOKIE["accountA"])) {
     header('Location: ' . '../../../index.php'); /* Redirect browser */
     die();
 } else {
+    $c= array();
+    $b= array();
+    include "../DataClasses/category.php";
+    include "../DataClasses/itembrand.php";
+    require "../Processing/updateProductProcess.php";
 
-    include "../Processing/updateProductProcess.php";
     include "../DataClasses/vw_item.php";
 
     $user= unserialize($_COOKIE["accountA"]);
-    $iID=$_GET["id"];
+    if(empty($_GET)){
+        $iID=$_POST['itemID'];
+    }
+    else{
+        $iID=$_GET["id"];
+    }
+
 
 $dbOne = new DBConnect();
 
@@ -64,6 +74,32 @@ if ($dbOne->connectToDatabase()) {
             $One->itembrandID= $resArray["BrandID"];
 
 
+        }
+        $sqlC = "SELECT * FROM category ";
+        $resc = mysqli_query($dbOne->myconn, $sqlC);
+
+        $sqlB = "SELECT * FROM itembrand ";
+        $resb = mysqli_query($dbOne->myconn, $sqlB);
+
+
+        if ($resb && $resc) {
+
+
+            while($resArrayc = mysqli_fetch_array($resc, MYSQLI_ASSOC)) {
+                $cOne = new category();
+                $cOne->categoryID = $resArrayc["id_category"];
+                $cOne->categoryName = $resArrayc["categoryName"];
+                array_push($c,$cOne);
+            }
+
+
+            while($resArrayb= mysqli_fetch_array($resb, MYSQLI_ASSOC)) {
+                $bOne = new itembrand();
+                $bOne->itembrandID = $resArrayb["id_itembrand"];
+                $bOne->itembrandName = $resArrayb["itembrandName"];
+                array_push($b,$bOne);
+
+            }
         }
     }
 }
@@ -143,7 +179,7 @@ include '../Structure/AdminHeader.php'
                 <div class="panel-heading">
                     <span class="glyphicon "></span></div>
                 <div class="panel-body">
-                    <form action = "UpdateProduct.php" method= "post" class="form-horizontal" role="form">
+                    <form action = "UpdateProduct.php" method= "post" class="form-horizontal" role="form" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="itemID" class="col-sm-3 control-label">
                                 Product ID</label>
@@ -169,14 +205,41 @@ include '../Structure/AdminHeader.php'
                             <label for="category" class="col-sm-3 control-label">
                                 Category</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="category" name="category" placeholder="Category" value="<?php echo $One->categoryName ?>" required>
+                                <select name="category" id="category" class="form-control">
+                                    <?php
+                                    for($i=0;$i<count($c);$i++){
+
+                                        if($c[$i]->categoryID == $One->categoryID){
+                                            echo "<option id=".$c[$i]->categoryID." value=".$c[$i]->categoryID." selected>".$c[$i]->categoryName."</option>.";
+                                        }
+                                        else{
+                                            echo "<option id=".$c[$i]->categoryID." value=".$c[$i]->categoryID." >".$c[$i]->categoryName."</option>.";
+                                        }
+
+                                    }
+                                    ?>
+
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="brand" class="col-sm-3 control-label">
                                 Brand</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="brand" name="brand" placeholder="Brand" value="<?php echo $One->itembrandName ?>" required>
+                                <select name="brand" id="brand" class="form-control">
+                                    <?php
+                                    for($i=0;$i<count($b);$i++){
+                                        if($b[$i]->itembrandID == $One->itembrandID){
+                                            echo "<option id=" . $b[$i]->itembrandID . " value=" . $b[$i]->itembrandID . " selected>" . $b[$i]->itembrandName . "</option>.";
+                                        }
+                                        else {
+                                            echo "<option id=" . $b[$i]->itembrandID . " value=" . $b[$i]->itembrandID . ">" . $b[$i]->itembrandName . "</option>.";
+                                        }
+                                    }
+                                    ?>
+
+
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -190,7 +253,31 @@ include '../Structure/AdminHeader.php'
                             <label for="activated" class="col-sm-3 control-label">
                                 Activated</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="activated" name="activated" placeholder="Activated" value="<?php if($One->activated==1){ echo "True";}else{echo "False";}?>" required>
+                                <select name="activated" id="activated" class="form-control">
+                                    <?php
+                                        if($One->activated ==1){
+                                            echo "<option id=\"1\" value=\"1\" selected>True</option>";
+                                            echo "<option id=\"0\" value=\"0\">False</option>";
+                                        }
+                                        else{
+                                            echo "<option id=\"1\" value=\"1\" >True</option>";
+                                            echo "<option id=\"0\" value=\"0\" selected>False</option>";
+                                        }
+                                    ?>
+
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image" class="col-sm-3 control-label">
+                                Image</label>
+                            <div class="col-sm-9">
+                                <?php
+                                echo '<img src="data:image/jpeg;base64,'.base64_encode($One->itemImage) .'" />';
+                                ?>
+                                <input type="file" name="image">
                             </div>
                         </div>
                         <div class="form-group last">
@@ -208,8 +295,8 @@ include '../Structure/AdminHeader.php'
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
-                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'AccountAdmin.php';
+                                                    echo "<script type='text/javascript'>alert('You have updated the product successfully!')
+                                                                //window.location = 'AccountAdmin.php';
                                                               </script>";
 
                                                 }

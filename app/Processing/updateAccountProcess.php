@@ -9,8 +9,8 @@ if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
-    include "../DataClasses/user.php";
-    include "../DatabaseConnection/DBConnect.php";
+
+
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["account"]);
 
@@ -39,7 +39,7 @@ if (empty($_POST) ){
 else {
 
     session_start();
-    include "../DatabaseConnection/DBConnect.php";
+
     $dbOne = new DBConnect();
     $CurUser= unserialize($_COOKIE["account"]);
 

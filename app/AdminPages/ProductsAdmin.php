@@ -205,7 +205,7 @@ include '../Structure/footer.php'
     function productRemove(num){
         var ok =window.confirm("Are you sure you want to remove this product?");
         if(ok==true){
-            window.location.href = "ItemRemove.php?id=" + num;
+            window.location.href = "RemoveProduct.php?id=" + num;
         }
         else{
 

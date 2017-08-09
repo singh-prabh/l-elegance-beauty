@@ -12,7 +12,8 @@ require 'app/Register_LogIn/loginProcess.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <title>L'Elegance Beauty</title>
-    <link rel="stylesheet" href="app/Images/mycss.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="app/packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
 
     <style>
         body {

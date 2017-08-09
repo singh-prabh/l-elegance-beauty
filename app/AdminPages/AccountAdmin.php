@@ -5,6 +5,7 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
+    require "../Processing/updateAccountProcessAdmin.php";
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 
@@ -39,11 +40,10 @@ if(!isset($_COOKIE["accountA"])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>L'Elegance Beauty-myAccount</title>
-    <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
-        /* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
+
         body {
             padding-bottom: 40px;
             color: #5a5a5a;
