@@ -32,7 +32,7 @@ if(!isset($_COOKIE["account"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
-    require "../Processing/updateAccountProcess.php";
+    require "../Processing/UpdateAccountProcess.php";
     $user= unserialize($_COOKIE["account"]);
 }
 ?>

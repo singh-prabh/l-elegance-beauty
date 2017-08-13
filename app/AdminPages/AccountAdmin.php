@@ -5,7 +5,7 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
-    require "../Processing/updateAccountProcessAdmin.php";
+    require "../Processing/UpdateAccountProcessAdmin.php";
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 

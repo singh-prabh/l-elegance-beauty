@@ -6,7 +6,8 @@ if(!isset($_COOKIE["accountA"])) {
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
     include "../DataClasses/service.php";
-    require "../Processing/updateServiceProcess.php";
+    include "../DataClasses/category.php";
+    require "../Processing/UpdateServiceProcess.php";
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 
@@ -36,10 +37,6 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
 
 
-
-    include "../DataClasses/category.php";
-
-
     $user= unserialize($_COOKIE["accountA"]);
     if(empty($_GET)){
         $iID = $_POST['sID'];
@@ -63,7 +60,7 @@ if(!isset($_COOKIE["accountA"])) {
         if ($res && $resCat) {
 
             while($resArrayCat=mysqli_fetch_array($resCat, MYSQLI_ASSOC)){
-                $catOne = new service();
+                $catOne = new category();
                 $catOne->categoryID = $resArrayCat["id_category"];
                 $catOne->categoryName = $resArrayCat["categoryName"];
                 array_push($ac,$catOne);

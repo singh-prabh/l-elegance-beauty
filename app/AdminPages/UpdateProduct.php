@@ -3,8 +3,12 @@ if(!isset($_COOKIE["accountA"])) {
     header('Location: ' . '../../index.php'); /* Redirect browser */
     die();
 } else {
+    include "../DataClasses/category.php";
+    include "../DataClasses/itembrand.php";
+    include "../DataClasses/vw_item.php";
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
+    require "../Processing/UpdateProductProcess.php";
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 
@@ -32,14 +36,6 @@ if(!isset($_COOKIE["accountA"])) {
     header('Location: ' . '../../../index.php'); /* Redirect browser */
     die();
 } else {
-    $c= array();
-    $b= array();
-    include "../DataClasses/category.php";
-    include "../DataClasses/itembrand.php";
-    require "../Processing/updateProductProcess.php";
-
-    include "../DataClasses/vw_item.php";
-    $iID=$_GET["id"];
     $user= unserialize($_COOKIE["accountA"]);
     if(empty($_GET)){
         $iID=$_POST['itemID'];
@@ -47,6 +43,9 @@ if(!isset($_COOKIE["accountA"])) {
     else{
         $iID=$_GET["id"];
     }
+
+    $c= array();
+    $b= array();
 
 
 $dbOne = new DBConnect();
@@ -75,6 +74,7 @@ if ($dbOne->connectToDatabase()) {
 
 
         }
+
         $sqlC = "SELECT * FROM category ";
         $resc = mysqli_query($dbOne->myconn, $sqlC);
 
