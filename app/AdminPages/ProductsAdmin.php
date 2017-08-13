@@ -173,11 +173,19 @@ include '../Structure/AdminHeader.php'
                          <td>$s->itemPrice</td>
                          <td>$s->itembrandName</td>
                          <td>$s->categoryName</td>
-                         <td>$s->activated</td>
+EOD;
+                    if($s->activated==0) {
+                        echo "<td >False</td>";
+                    }
+                    else{
+                        echo "<td >True</td>";
+                    }
+                    echo <<<EOD
                          <td><button onclick="productUpdate($s->itemID);" class="btn btn-sm btn-update">Update Product</button></td>
                          <td><button onclick="productRemove($s->itemID);" class="btn btn-sm ">Remove Product</button></td>
                     </tr>
 EOD;
+
 
 
                 }

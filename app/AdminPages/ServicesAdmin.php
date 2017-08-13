@@ -27,12 +27,7 @@ if(!isset($_COOKIE["accountA"])) {
     }
 
 }
-if(!isset($_COOKIE["accountA"])) {
-    header('Location: ' . '../../../index.php'); /* Redirect browser */
-    die();
-} else {
 
-}
 ?>
 <?php
 include "../DataClasses/service.php";
@@ -212,7 +207,7 @@ include '../Structure/footer.php'
     function sRemove(num){
         var ok =window.confirm("Are you sure you want to remove this treatment?");
         if(ok==true){
-            window.location.href = "ServiceRemove.php?id=" + num;
+            window.location.href = "RemoveService.php?id=" + num;
         }
         else{
 

@@ -272,7 +272,7 @@ class DBConnect //create a class for make connection
     }
 
     function updateOrder(order $order){
-        $sqlUpdate = "UPDATE order 
+        $sqlUpdate = "UPDATE `order` 
         SET id_user ='".$order->userID."', 
         statusCompleted ='".$order->statusCompleted."',
         orderDate ='".$order->orderDate."',

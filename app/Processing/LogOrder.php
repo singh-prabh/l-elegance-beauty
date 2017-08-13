@@ -75,12 +75,12 @@ if ($dbOne->connectToDatabase()) {
 
         $order = new order();
         $order->userID = $user->userID;
-        $order->statusCompleted = 0;
+        $order->statusCompleted = '0';
         date_default_timezone_set('Africa/Johannesburg');
         $order->orderDate= date("Y-m-d H:i:s");
-        $order->statusCollected = 0;
+        $order->statusCollected = '0';
         $order->totalPrice = $orderTotal;
-        $order->paymentCompleted = 1;
+        $order->paymentCompleted = '1';
 
         $orderid = $dbOne->insertOrder($order);
         echo $orderid;

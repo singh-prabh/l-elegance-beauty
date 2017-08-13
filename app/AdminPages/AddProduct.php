@@ -36,7 +36,8 @@ if(!isset($_COOKIE["accountA"])) {
     $b= array();
     include "../DataClasses/category.php";
     include "../DataClasses/itembrand.php";
-    include "../Processing/updateProductProcess.php";
+   require "../Processing/AddProductProcess.php";
+
     include "../DataClasses/vw_item.php";
 
     $user= unserialize($_COOKIE["accountA"]);
@@ -45,33 +46,35 @@ if(!isset($_COOKIE["accountA"])) {
     $dbOne = new DBConnect();
 
     if ($dbOne->connectToDatabase()) {
+        $c= array();
+        $b= array();
 
-        $sqlC = "SELECT * FROM category ";
-        $resc = mysqli_query($dbOne->myconn, $sqlC);
+            $sqlC = "SELECT * FROM category ";
+            $resc = mysqli_query($dbOne->myconn, $sqlC);
 
-        $sqlB = "SELECT * FROM itembrand ";
-        $resb = mysqli_query($dbOne->myconn, $sqlB);
-
-
-        if ($resb && $resc) {
+            $sqlB = "SELECT * FROM itembrand ";
+            $resb = mysqli_query($dbOne->myconn, $sqlB);
 
 
-            while($resArrayc = mysqli_fetch_array($resc, MYSQLI_ASSOC)) {
-                $cOne = new category();
-                $cOne->categoryID = $resArrayc["id_category"];
-                $cOne->categoryName = $resArrayc["categoryName"];
-                array_push($c,$cOne);
+            if ($resb && $resc) {
+
+
+                while($resArrayc = mysqli_fetch_array($resc, MYSQLI_ASSOC)) {
+                    $cOne = new category();
+                    $cOne->categoryID = $resArrayc["id_category"];
+                    $cOne->categoryName = $resArrayc["categoryName"];
+                    array_push($c,$cOne);
+                }
+
+
+                while($resArrayb= mysqli_fetch_array($resb, MYSQLI_ASSOC)) {
+                    $bOne = new itembrand();
+                    $bOne->itembrandID = $resArrayb["id_itembrand"];
+                    $bOne->itembrandName = $resArrayb["itembrandName"];
+                    array_push($b,$bOne);
+
+                }
             }
-
-
-            while($resArrayb= mysqli_fetch_array($resb, MYSQLI_ASSOC)) {
-                $bOne = new itembrand();
-                $bOne->itembrandID = $resArrayb["id_itembrand"];
-                $bOne->itembrandName = $resArrayb["itembrandName"];
-                array_push($b,$bOne);
-
-            }
-        }
     }
 }
 ?>
@@ -149,7 +152,7 @@ include '../Structure/AdminHeader.php'
                 <div class="panel-heading">
                     <span class="glyphicon "></span></div>
                 <div class="panel-body">
-                    <form action = "AddProduct.php" method= "post" class="form-horizontal" role="form">
+                    <form action = "AddProduct.php" method= "post" class="form-horizontal" role="form" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label for="itemName" class="col-sm-3 control-label">
@@ -162,7 +165,7 @@ include '../Structure/AdminHeader.php'
                             <label for="itemDescription" class="col-sm-3 control-label">
                                 Product Description</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="Product Description" >
+                                <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="Product Description"  required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -171,10 +174,11 @@ include '../Structure/AdminHeader.php'
                             <div class="col-sm-9">
                                 <select name="category" id="category" class="form-control">
                                     <?php
-                                        for($i=0;$i<count($c);$i++){
+                                    for($i=0;$i<count($c);$i++){
 
-                                            echo "<option id=".$c[$i]->categoryID." value=".$c[$i]->categoryID.">".$c[$i]->categoryName."</option>.";
-                                        }
+                                    echo "<option id=".$c[$i]->categoryID." value=".$c[$i]->categoryID." >".$c[$i]->categoryName."</option>.";
+
+                                    }
                                     ?>
 
                                 </select>
@@ -187,8 +191,7 @@ include '../Structure/AdminHeader.php'
                                 <select name="brand" id="brand" class="form-control">
                                     <?php
                                     for($i=0;$i<count($b);$i++){
-
-                                        echo "<option id=".$b[$i]->itembrandID." value=".$b[$i]->itembrandID.">".$b[$i]->itembrandName."</option>.";
+                                    echo "<option id=" . $b[$i]->itembrandID . " value=" . $b[$i]->itembrandID . ">" . $b[$i]->itembrandName . "</option>.";
                                     }
                                     ?>
 
@@ -198,9 +201,9 @@ include '../Structure/AdminHeader.php'
                         </div>
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                Product Price</label>
+                                Product Price (ZAR)</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Price">
+                                <input type="text" class="form-control" id="price" name="price" placeholder="Price"  required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -208,10 +211,17 @@ include '../Structure/AdminHeader.php'
                                 Activated</label>
                             <div class="col-sm-9">
                                 <select name="activated" id="activated" class="form-control">
-                                    <option id="1" value="1">True</option>
-                                    <option id="0" value="0">False</option>
+                                    <option id="1" value="1" >True</option>
+                                    <option id="0" value="0" >False</option>
 
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image" class="col-sm-3 control-label">
+                                Image</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="image">
                             </div>
                         </div>
                         <div class="form-group last">
@@ -229,8 +239,8 @@ include '../Structure/AdminHeader.php'
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
-                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'AccountAdmin.php';
+                                                    echo "<script type='text/javascript'>alert('You have added the product successfully!')
+                                                                window.location = 'ProductsAdmin.php';
                                                               </script>";
 
                                                 }
@@ -246,12 +256,11 @@ include '../Structure/AdminHeader.php'
                             </div>
                         </div>
                     </form>
-                    </div>
+                </div>
 
             </div>
         </div>
     </div>
-
 </div>
 
 <?php

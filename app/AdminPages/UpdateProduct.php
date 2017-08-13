@@ -296,7 +296,7 @@ include '../Structure/AdminHeader.php'
                                             <p><?php if($error=="true")
                                                 {
                                                     echo "<script type='text/javascript'>alert('You have updated the product successfully!')
-                                                                //window.location = 'AccountAdmin.php';
+                                                                window.location = 'ProductsAdmin.php';
                                                               </script>";
 
                                                 }

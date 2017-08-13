@@ -5,6 +5,8 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
+    include "../DataClasses/itembrand.php";
+    require "../Processing/AddBrandProcess.php";
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 
@@ -34,9 +36,8 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     $c= array();
     $b= array();
-    include "../DataClasses/itembrand.php";
-    include "../Processing/updateProductProcess.php";
-    include "../DataClasses/vw_item.php";
+
+
 
     $user= unserialize($_COOKIE["accountA"]);
 
@@ -121,10 +122,10 @@ include '../Structure/AdminHeader.php'
                     <form action = "AddBrand.php" method= "post" class="form-horizontal" role="form">
 
                         <div class="form-group">
-                            <label for="brandName" class="col-sm-3 control-label">
+                            <label for="brand" class="col-sm-3 control-label">
                                 Brand Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="brandName" name="brandName" placeholder="Brand Name"  required>
+                                <input type="text" class="form-control" id="brand" name="brand" placeholder="Brand Name"  required>
                             </div>
                         </div>
                         <div class="form-group last">
@@ -142,8 +143,8 @@ include '../Structure/AdminHeader.php'
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
-                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'AccountAdmin.php';
+                                                    echo "<script type='text/javascript'>alert('You have added a brand successfully!')
+                                                                window.location = 'ProductsAdmin.php';
                                                               </script>";
 
                                                 }

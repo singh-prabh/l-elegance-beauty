@@ -5,6 +5,8 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
+    include "../DataClasses/category.php";
+    require "../Processing/AddCategoryProcess.php";
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 
@@ -34,9 +36,8 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     $c= array();
     $b= array();
-    include "../DataClasses/category.php";
-    include "../Processing/updateProductProcess.php";
-    include "../DataClasses/vw_item.php";
+
+
 
     $user= unserialize($_COOKIE["accountA"]);
 
@@ -124,7 +125,7 @@ include '../Structure/AdminHeader.php'
                             <label for="categoryName" class="col-sm-3 control-label">
                                 Category Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Category Name"  required>
+                                <input type="text" class="form-control" id="category" name="category" placeholder="Category Name"  required>
                             </div>
                         </div>
                         <div class="form-group last">
@@ -142,8 +143,8 @@ include '../Structure/AdminHeader.php'
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
-                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'AccountAdmin.php';
+                                                    echo "<script type='text/javascript'>alert('You have added a category successfully!')
+                                                                window.location = 'Home.php';
                                                               </script>";
 
                                                 }

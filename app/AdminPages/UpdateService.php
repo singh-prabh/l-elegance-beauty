@@ -5,6 +5,8 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
+    include "../DataClasses/service.php";
+    require "../Processing/updateServiceProcess.php";
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 
@@ -33,15 +35,22 @@ if(!isset($_COOKIE["accountA"])) {
     die();
 } else {
 
-    include "../Processing/updateProductProcess.php";
-    include "../DataClasses/service.php";
+
+
     include "../DataClasses/category.php";
 
+
     $user= unserialize($_COOKIE["accountA"]);
-    $iID=$_GET["id"];
+    if(empty($_GET)){
+        $iID = $_POST['sID'];
+    }
+    else{
+        $iID=$_GET["id"];
+    }
+
 
     $dbOne = new DBConnect();
-
+    $ac=array();
     if ($dbOne->connectToDatabase()) {
 
         $sqlSelect = "SELECT * FROM service WHERE id_service = '".$iID."'";
@@ -52,7 +61,7 @@ if(!isset($_COOKIE["accountA"])) {
 
 
         if ($res && $resCat) {
-            $ac=array();
+
             while($resArrayCat=mysqli_fetch_array($resCat, MYSQLI_ASSOC)){
                 $catOne = new service();
                 $catOne->categoryID = $resArrayCat["id_category"];
@@ -71,10 +80,11 @@ if(!isset($_COOKIE["accountA"])) {
                 foreach($ac as $struct) {
                     if ($serviceOne->categoryID == $struct->categoryID) {
                         $item = $struct->categoryName;
+                        $serviceOne->categoryName = $item;
                         break;
                     }
                 }
-                $serviceOne->categoryName = $item;
+
 
             }
 
@@ -191,7 +201,21 @@ include '../Structure/AdminHeader.php'
                             <label for="category" class="col-sm-3 control-label">
                                 Category</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="category" name="category" placeholder="Category" value="<?php echo $serviceOne->categoryName ?>" required>
+                                <select name="category" id="category" class="form-control">
+                                    <?php
+                                    for($i=0;$i<count($ac);$i++){
+
+                                        if($ac[$i]->categoryID == $serviceOne->categoryID){
+                                            echo "<option id=".$ac[$i]->categoryID." value=".$ac[$i]->categoryID." selected>".$ac[$i]->categoryName."</option>.";
+                                        }
+                                        else{
+                                            echo "<option id=".$ac[$i]->categoryID." value=".$ac[$i]->categoryID." >".$ac[$i]->categoryName."</option>.";
+                                        }
+
+                                    }
+                                    ?>
+
+                                </select>
                             </div>
                         </div>
                         <div class="form-group last">
@@ -209,8 +233,8 @@ include '../Structure/AdminHeader.php'
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
-                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'AccountAdmin.php';
+                                                    echo "<script type='text/javascript'>alert('You have updated the treatment successfully!')
+                                                                window.location = 'ServicesAdmin.php';
                                                               </script>";
 
                                                 }

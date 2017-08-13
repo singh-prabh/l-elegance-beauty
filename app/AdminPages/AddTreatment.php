@@ -33,18 +33,18 @@ if(!isset($_COOKIE["accountA"])) {
     die();
 } else {
     $c= array();
-    $b= array();
-    include "../DataClasses/category.php";
 
-    include "../Processing/updateProductProcess.php";
-    include "../DataClasses/vw_item.php";
+    include "../DataClasses/category.php";
+    require "../Processing/AddTreatmentProcess.php";
+
 
     $user= unserialize($_COOKIE["accountA"]);
-
 
     $dbOne = new DBConnect();
 
     if ($dbOne->connectToDatabase()) {
+        $c= array();
+
 
         $sqlC = "SELECT * FROM category ";
         $resc = mysqli_query($dbOne->myconn, $sqlC);
@@ -52,7 +52,7 @@ if(!isset($_COOKIE["accountA"])) {
 
 
 
-        if ($resc) {
+        if ( $resc) {
 
 
             while($resArrayc = mysqli_fetch_array($resc, MYSQLI_ASSOC)) {
@@ -74,7 +74,7 @@ if(!isset($_COOKIE["accountA"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>L'Elegance Beauty-Products</title>
+    <title>L'Elegance Beauty-Treatments</title>
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
@@ -129,7 +129,7 @@ include '../Structure/AdminHeader.php'
 ?>
 <div>
     <p class="form-title">
-        Treatments</p>
+       Treatments</p>
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
@@ -140,7 +140,7 @@ include '../Structure/AdminHeader.php'
                 <div class="panel-heading">
                     <span class="glyphicon "></span></div>
                 <div class="panel-body">
-                    <form action = "AddTreatment.php" method= "post" class="form-horizontal" role="form">
+                    <form action = "AddTreatment.php" method= "post" class="form-horizontal" role="form" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label for="sName" class="col-sm-3 control-label">
@@ -153,7 +153,7 @@ include '../Structure/AdminHeader.php'
                             <label for="sDescription" class="col-sm-3 control-label">
                                 Treatment Description</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="sDescription" name="sDescription" placeholder="Treatment Description" >
+                                <input type="text" class="form-control" id="sDescription" name="sDescription" placeholder="Treatment Description"  required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -164,7 +164,8 @@ include '../Structure/AdminHeader.php'
                                     <?php
                                     for($i=0;$i<count($c);$i++){
 
-                                        echo "<option id=".$c[$i]->categoryID." value=".$c[$i]->categoryID.">".$c[$i]->categoryName."</option>.";
+                                        echo "<option id=".$c[$i]->categoryID." value=".$c[$i]->categoryID." >".$c[$i]->categoryName."</option>.";
+
                                     }
                                     ?>
 
@@ -173,12 +174,11 @@ include '../Structure/AdminHeader.php'
                         </div>
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                Treatment Price</label>
+                                Treatment Price (ZAR)</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Price">
+                                <input type="text" class="form-control" id="price" name="price" placeholder="Price"  required>
                             </div>
                         </div>
-
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-sm btn-login">
@@ -194,8 +194,8 @@ include '../Structure/AdminHeader.php'
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
-                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'AccountAdmin.php';
+                                                    echo "<script type='text/javascript'>alert('You have added the treatment successfully!')
+                                                                window.location = 'ServicesAdmin.php';
                                                               </script>";
 
                                                 }
@@ -216,7 +216,6 @@ include '../Structure/AdminHeader.php'
             </div>
         </div>
     </div>
-
 </div>
 
 <?php

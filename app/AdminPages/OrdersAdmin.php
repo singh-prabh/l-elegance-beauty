@@ -111,7 +111,7 @@ include '../Structure/AdminHeader.php'
             <th>Order Collection Status</th>
             <th>Order Date</th>
             <th>Total Price per Order</th>
-
+            <th>Payment Completed</th>
             <th>Product Name</th>
             <th>Product Description</th>
 
@@ -120,6 +120,7 @@ include '../Structure/AdminHeader.php'
             <th>Quantity</th>
             <th>Price</th>
             <th>Total Price per Product</th>
+
             <th>Update Order</th>
 
         </tr>
@@ -215,6 +216,13 @@ include '../Structure/AdminHeader.php'
 
                                 echo "<td rowspan=\"$numItem\">$curr->orderDate</td>";
                                 echo "<td rowspan=\"$numItem\">R $curr->totalPrice</td>";
+                                if($curr->paymentCompleted==0) {
+                                    echo "<td rowspan=\"$numItem\">No</td>";
+                                }
+                                else{
+                                    echo "<td rowspan=\"$numItem\">Yes</td>";
+                                }
+
                             }
 
                             echo "<td >$curr->itemName</td>";
@@ -268,7 +276,7 @@ include '../Structure/footer.php'
 ?>
 <script>
     function orderUpdate(num){
-        window.location.href = "OrderUpdate.php?id=" + num;
+        window.location.href = "UpdateOrders.php?id=" + num;
     }
 </script>
 <script src="../packages/jquery/jquery-3.2.1.min.js"></script>
