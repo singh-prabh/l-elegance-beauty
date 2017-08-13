@@ -5,6 +5,9 @@ if(!isset($_COOKIE["accountA"])) {
 } else {
     include "../DataClasses/user.php";
     include "../DatabaseConnection/DBConnect.php";
+
+    require "../Processing/UpdateUserProcess.php";
+
     $dbOne = new DBConnect();
     $user = unserialize($_COOKIE["accountA"]);
 
@@ -27,14 +30,17 @@ if(!isset($_COOKIE["accountA"])) {
     }
 
 }
-
+$uOne = new user();
 if(!isset($_COOKIE["accountA"])) {
     header('Location: ' . '../../../index.php'); /* Redirect browser */
     die();
 } else {
-
-    include "../Processing/updateUserProcess.php";
-    $iID=$_GET["id"];
+    if(empty($_GET)){
+        $iID=$_POST['uID'];
+    }
+    else{
+        $iID=$_GET["id"];
+    }
     $user= unserialize($_COOKIE["accountA"]);
     $dbOne = new DBConnect();
 
@@ -42,8 +48,6 @@ if(!isset($_COOKIE["accountA"])) {
 
         $sqlSelect = "SELECT * FROM user WHERE id_user= '".$iID."'";
         $res = mysqli_query($dbOne->myconn, $sqlSelect);
-
-
 
 
         if ($res) {
@@ -147,59 +151,87 @@ include '../Structure/AdminHeader.php'
                 <div class="panel-body">
                     <form action = "UpdateUser.php" method= "post" class="form-horizontal" role="form">
                         <div class="form-group">
-                            <label for="inputID" class="col-sm-3 control-label">
+                            <label for="uID" class="col-sm-3 control-label">
                                 User ID</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputID" name="inputID" placeholder="ID" value="<?php echo $uOne->userID ?>" readonly>
+                                <input type="text" class="form-control" id="uID" name="uID" placeholder="User ID" value="<?php echo $uOne->userID ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputName" class="col-sm-3 control-label">
+                            <label for="uName" class="col-sm-3 control-label">
                                 Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="<?php echo $uOne->userName ?>" required>
+                                <input type="text" class="form-control" id="uName" name="uName" placeholder="Name" value="<?php echo $uOne->userName ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputSurname" class="col-sm-3 control-label">
                                 Surname</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Surname" value="<?php echo $uOne->userSurname ?>" required>
+                                <input type="text" class="form-control" id="uSurname" name="uSurname" placeholder="Surname" value="<?php echo $uOne->userSurname ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputContact" class="col-sm-3 control-label">
                                 Contact Number</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputContact" name="inputContact" placeholder="Contact Number" value="<?php echo $uOne->userContact ?>" required>
+                                <input type="text" class="form-control" id="uContact" name="uContact" placeholder="Contact Number" value="<?php echo $uOne->userContact ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-3 control-label">
                                 Email</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" value="<?php echo $uOne->userEmail ?>" required>
+                                <input type="email" class="form-control" id="uEmail" name="uEmail" placeholder="Email" value="<?php echo $uOne->userEmail ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-3 control-label">
+                            <label for="uPassword3" class="col-sm-3 control-label">
                                 Password</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" value="<?php echo $uOne->userPassword ?>" readonly="">
+                                <input type="password" class="form-control" id="uPassword" name="uPassword" placeholder="Password" value="<?php echo $uOne->userPassword ?>" readonly="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputAdmin" class="col-sm-3 control-label">
                                 Admin</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="admin" name="admin" placeholder="Admin" value="<?php if($uOne->admin==1){ echo "True";}else{echo "False";} ?>" required>
+                                <select name="activated" id="activated" class="form-control">
+                                    <?php
+                                    if($uOne->admin ==1){
+                                        echo "<option id=\"1\" value=\"1\" selected>True</option>";
+                                        echo "<option id=\"0\" value=\"0\">False</option>";
+                                    }
+                                    else{
+                                        echo "<option id=\"1\" value=\"1\" >True</option>";
+                                        echo "<option id=\"0\" value=\"0\" selected>False</option>";
+                                    }
+                                    ?>
+
+
+
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="activated" class="col-sm-3 control-label">
                                 Activated</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="activated" name="activated" placeholder="Activated" value="<?php if($uOne->activated==1){ echo "True";}else{echo "False";} ?>" required>
+                                <select name="admin" id="admin" class="form-control">
+                                    <?php
+                                    if($uOne->activated ==1){
+                                        echo "<option id=\"1\" value=\"1\" selected>True</option>";
+                                        echo "<option id=\"0\" value=\"0\">False</option>";
+                                    }
+                                    else{
+                                        echo "<option id=\"1\" value=\"1\" >True</option>";
+                                        echo "<option id=\"0\" value=\"0\" selected>False</option>";
+                                    }
+                                    ?>
+
+
+
+                                </select>
                             </div>
                         </div>
                         <div class="form-group last">
@@ -217,8 +249,8 @@ include '../Structure/AdminHeader.php'
                                         <?php foreach($_SESSION['errors'] as $error): ?>
                                             <p><?php if($error=="true")
                                                 {
-                                                    echo "<script type='text/javascript'>alert('You have updated your account successfully!')
-                                                                window.location = 'AccountAdmin.php';
+                                                    echo "<script type='text/javascript'>alert('You have updated the user successfully!')
+                                                                window.location = 'UsersAdmin.php';
                                                               </script>";
 
                                                 }

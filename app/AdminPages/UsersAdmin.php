@@ -132,16 +132,23 @@ include '../Structure/AdminHeader.php'
             if ($res) {
                 $a = array();
                 while($resArray = mysqli_fetch_array($res, MYSQLI_ASSOC)){
-                    $One = new user();
-                    $One->userID = $resArray["id_user"];
-                    $One->userName = $resArray["userName"];
-                    $One->userSurname = $resArray["userSurname"];
-                    $One->userContact = $resArray["userContact"];
-                    $One->userEmail = $resArray["userEmail"];
-                    $One->userPassword = $resArray["userPassword"];
-                    $One->activated = $resArray["activated"];
-                    $One->admin = $resArray["admin"];
-                    array_push($a,$One);
+
+                    if($resArray["id_user"] == $user->userID){
+
+                    }
+                    else{
+                        $One = new user();
+                        $One->userID = $resArray["id_user"];
+                        $One->userName = $resArray["userName"];
+                        $One->userSurname = $resArray["userSurname"];
+                        $One->userContact = $resArray["userContact"];
+                        $One->userEmail = $resArray["userEmail"];
+                        $One->userPassword = $resArray["userPassword"];
+                        $One->activated = $resArray["activated"];
+                        $One->admin = $resArray["admin"];
+                        array_push($a,$One);
+                    }
+
                 }
 
                 for($i=0;$i<count($a);$i++){
