@@ -253,6 +253,7 @@ if ($dbOne->connectToDatabase()) {
 }
 ?>
     </table>
+    <br/>
 
 </div>
 
@@ -261,7 +262,7 @@ if ($dbOne->connectToDatabase()) {
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon "></span></div>
+                    <span class="glyphicon "></span>Update Order</div>
                 <div class="panel-body">
                     <form action = "UpdateOrders.php" method= "post" class="form-horizontal" role="form" enctype="multipart/form-data">
                         <div class="form-group">

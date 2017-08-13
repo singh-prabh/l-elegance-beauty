@@ -56,7 +56,7 @@ require '../Register_LogIn/registerProcess.php';
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-lock"></span> Register</div>
+                    <span class="glyphicon glyphicon-lock">Register</span> </div>
                 <div class="panel-body">
                     <form action = "register.php" method= "post" class="form-horizontal" role="form">
                         <div class="form-group">

@@ -138,7 +138,7 @@ include '../Structure/AdminHeader.php'
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon "></span></div>
+                    <span class="glyphicon "></span>Add Treatment</div>
                 <div class="panel-body">
                     <form action = "AddTreatment.php" method= "post" class="form-horizontal" role="form" enctype="multipart/form-data">
 

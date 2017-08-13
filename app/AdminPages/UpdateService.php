@@ -163,7 +163,7 @@ include '../Structure/AdminHeader.php'
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon "></span></div>
+                    <span class="glyphicon "></span>Update Treatment</div>
                 <div class="panel-body">
                     <form action = "UpdateService.php" method= "post" class="form-horizontal" role="form">
                         <div class="form-group">
@@ -189,7 +189,7 @@ include '../Structure/AdminHeader.php'
                         </div>
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                               Price</label>
+                               Treatment Price (ZAR)</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $serviceOne->servicePrice ?>" required>
                             </div>

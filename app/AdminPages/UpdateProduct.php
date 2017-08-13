@@ -124,8 +124,18 @@ if ($dbOne->connectToDatabase()) {
             padding-top: 30px;
 
         }
-
-        p.form-title
+        .panel-default {
+            opacity: 0.9;
+            margin-top:30px;
+        }
+        .form-group.last {
+            margin-bottom:0px;
+        }
+        .btn-login {
+            background-color: #47c4b6;
+            color: white;
+        }
+        .form-title
         {
             font-family: 'Open Sans' , sans-serif;
             font-size: 30px;
@@ -134,8 +144,8 @@ if ($dbOne->connectToDatabase()) {
             color: #3c3c3c;
             margin-top: 5%;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            padding-top: 0px;
+            letter-spacing: 5px;
+            padding-top: 50px;
             padding-bottom: 20px;
         }
 
@@ -177,7 +187,7 @@ include '../Structure/AdminHeader.php'
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon "></span></div>
+                    <span class="glyphicon "></span> Update Product</div>
                 <div class="panel-body">
                     <form action = "UpdateProduct.php" method= "post" class="form-horizontal" role="form" enctype="multipart/form-data">
                         <div class="form-group">
@@ -244,7 +254,7 @@ include '../Structure/AdminHeader.php'
                         </div>
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                Product Price</label>
+                                Product Price (ZAR)</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $One->itemPrice?>" required>
                             </div>
