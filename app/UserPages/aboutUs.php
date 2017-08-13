@@ -92,7 +92,7 @@ include '../Structure/header.php'
 <div class="container">
 
     <div class="aboutus" >
-L’Elegance Beauty is a local business that is in the industry of selling beauty products as well as beauty services.<br/>
+L’Elegance Beauty is a local business that is in the industry of selling beauty products as well as offer beauty treatments.<br/>
 
 L’Elegance Beauty opened their doors for the first time in 2003 by the owner and beauty therapist, Lisle Weiermans.<br/>
         Lisle still runs her business herself successfully till this day.<br/>
@@ -102,8 +102,10 @@ She describes herself as having a passion for being practical and applying her s
 
 Lisle has been the only therapist for her business for the last 14 years and her clients are very special to her and she appreciates their loyalty.<br/>
 
-After talking to one of her clients it is clear that Lisle’s passion for her business and clients goes far beyond just giving them a beauty treatment,
+L'Elegance Beauty's clients says that it is clear that Lisle’s passion for her business and clients goes far beyond just giving them a beauty treatment,
 she makes each client feel special and refreshed after their treatment.<br/>
+
+L'Elegance Beauty welcomes you to their business with open arms.<br/>
 
     </div>
 
