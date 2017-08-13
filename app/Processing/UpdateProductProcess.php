@@ -50,9 +50,9 @@ else {
 
 
 
-   if ($dbOne->connectToDatabase()) {
+   if ($db->connectToDatabase()) {
 
-    $update = $dbOne->updateItem($item);
+    $update = $db->updateItem($item);
 
         if ($update==true) {
             $_SESSION['errors'] = array("true");
