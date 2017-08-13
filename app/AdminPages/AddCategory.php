@@ -144,7 +144,7 @@ include '../Structure/AdminHeader.php'
                                             <p><?php if($error=="true")
                                                 {
                                                     echo "<script type='text/javascript'>alert('You have added a category successfully!')
-                                                                window.location = 'Home.php';
+                                                                window.location = 'category.php';
                                                               </script>";
 
                                                 }

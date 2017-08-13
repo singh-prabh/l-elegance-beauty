@@ -144,7 +144,7 @@ include '../Structure/AdminHeader.php'
                                             <p><?php if($error=="true")
                                                 {
                                                     echo "<script type='text/javascript'>alert('You have added a brand successfully!')
-                                                                window.location = 'ProductsAdmin.php';
+                                                                window.location = 'brand.php';
                                                               </script>";
 
                                                 }

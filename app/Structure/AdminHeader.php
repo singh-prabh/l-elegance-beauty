@@ -15,6 +15,8 @@
 
                 <li><a href="../AdminPages/ProductsAdmin.php">Products</a></li>
                 <li><a href="../AdminPages/ServicesAdmin.php">Treatments</a></li>
+                <li><a href="../AdminPages/category.php">Categories</a></li>
+                <li><a href="../AdminPages/brand.php">Brands</a></li>
                 <li><a href="../AdminPages/OrdersAdmin.php">Orders</a></li>
                 <li><a href="../AdminPages/UsersAdmin.php">Users</a></li>
                <!-- <li><a href="../AdminPages/PaymentsAdmin.php">Payments</a></li> -->
