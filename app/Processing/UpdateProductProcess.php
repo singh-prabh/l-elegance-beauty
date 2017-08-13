@@ -5,7 +5,7 @@ if (empty($_POST) ){
 else {
 
     include "../DataClasses/item.php";
-    session_start();
+    //session_start();
 
 
     $db = new DBConnect();
