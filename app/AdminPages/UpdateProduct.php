@@ -39,7 +39,7 @@ if(!isset($_COOKIE["accountA"])) {
     require "../Processing/updateProductProcess.php";
 
     include "../DataClasses/vw_item.php";
-
+    $iID=$_GET["id"];
     $user= unserialize($_COOKIE["accountA"]);
     if(empty($_GET)){
         $iID=$_POST['itemID'];
