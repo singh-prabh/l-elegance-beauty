@@ -23,7 +23,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../Processing/LogOut.php" onclick="logout();">LogOut</a></li>
+                <li><a href="#" onclick="logout();">LogOut</a></li>
 
             </ul>
 
@@ -32,9 +32,9 @@
 </nav>
 <script>
     function logout(){
-        var out =window.confirm("Are you sure you want to log out of L'Elegance Beauty?");
-        if(out==true){
-            window.location.href = "../Processing/LogOut.php";
+
+        if(confirm("Are you sure you want to log out of L'Elegance Beauty?")){
+            window.location.href = "../Processing/LogOut.php?id=" + "1";
         }
         else{
 

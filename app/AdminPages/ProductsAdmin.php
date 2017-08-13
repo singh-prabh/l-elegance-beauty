@@ -100,6 +100,17 @@ include "../DataClasses/vw_item.php";
 
         }
 
+        #name {
+
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 20%;
+            font-size: 12px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
 
     </style>
 </head>
@@ -120,9 +131,10 @@ include '../Structure/AdminHeader.php'
         <button onclick="addProduct();" class="btn btn-sm btn-add"><b>Add Product</b></button>&nbsp;&nbsp;
         <button onclick="addCategory();" class="btn btn-sm btn-add"><b>Add Category</b></button>&nbsp;&nbsp;
         <button onclick="addBrand();" class="btn btn-sm btn-add"><b>Add Brand</b></button>
+
     </div>
     <br/>
-    <table>
+    <table id="table">
         <tr>
             <th>Product ID</th>
             <th>Product Name</th>
@@ -238,6 +250,8 @@ include '../Structure/footer.php'
 
 
     }
+
+
 </script>
 
 </body>
