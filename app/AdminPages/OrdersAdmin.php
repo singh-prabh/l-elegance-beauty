@@ -103,8 +103,9 @@ include '../Structure/AdminHeader.php'
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
 
-<div class="container marketing">
-    <table>
+<div class="container marketing table-responsive">
+    <table >
+        <thead>
         <tr>
             <th>OrderID</th>
             <th>Order Completion Status</th>
@@ -124,6 +125,8 @@ include '../Structure/AdminHeader.php'
             <th>Update Order</th>
 
         </tr>
+        </thead>
+        <tbody>
         <?php
         $dbOne = new DBConnect();
         if ($dbOne->connectToDatabase()) {
@@ -266,7 +269,7 @@ EOD;
         ?>
 
 
-
+        </tbody>
     </table>
 
 </div><!-- /.row -->

@@ -43,7 +43,7 @@ if(!isset($_COOKIE["accountA"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>L'Elegance Beauty</title>
+    <title>L'Elegance Beauty-Users</title>
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../packages/bootstrap/css/bootstrap-theme.min.css" crossorigin="anonymous">
     <style>
@@ -54,17 +54,10 @@ if(!isset($_COOKIE["accountA"])) {
             padding-top: 50px;
         }
 
-
-
-
-
         .img-circle {
             width: 200px;
             height: 200px;
         }
-
-
-
 
         .carousel .item {
             height: 400px;
@@ -76,8 +69,6 @@ if(!isset($_COOKIE["accountA"])) {
             left: 0;
             min-height: 400px;
         }
-
-
 
 
         .marketing {
@@ -97,13 +88,6 @@ if(!isset($_COOKIE["accountA"])) {
             margin-left: 10px;
             margin-right: 10px;
         }
-
-
-
-
-
-
-
 
         @media (min-width: 768px) {
 
@@ -144,7 +128,6 @@ if(!isset($_COOKIE["accountA"])) {
             }
 
         }
-
     </style>
 </head>
 <body>
@@ -153,7 +136,7 @@ include '../Structure/AdminHeader.php'
 ?>
 <div>
     <p class="form-title">
-        Welcome to L'Elegance Beauty <br/> Admin</p>
+        Welcome to L'Elegance Beauty Admin</p>
 
 </div>
 

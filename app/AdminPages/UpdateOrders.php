@@ -109,7 +109,7 @@ include '../Structure/AdminHeader.php'
         Orders</p>
 </div>
 <hr style="border-color:#47c4b6; border-width: 4px;" >
-<div class="container marketing">
+<div class="container marketing table-responsive">
     <table>
         <tr>
             <th>OrderID</th>
