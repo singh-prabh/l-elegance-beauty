@@ -89,7 +89,19 @@ if(!isset($_COOKIE["account"])) {
             margin-right: 10px;
         }
 
-
+        p.form-title
+        {
+            font-family: 'Open Sans' , sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+            color: #3c3c3c;
+            margin-top: 5%;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            padding-top: 50px;
+            padding-bottom: 100px;
+        }
 
 
 
@@ -118,19 +130,7 @@ if(!isset($_COOKIE["account"])) {
                 font-size: 21px;
                 line-height: 1.4;
             }
-            p.form-title
-            {
-                font-family: 'Open Sans' , sans-serif;
-                font-size: 30px;
-                font-weight: 600;
-                text-align: center;
-                color: #3c3c3c;
-                margin-top: 5%;
-                text-transform: uppercase;
-                letter-spacing: 5px;
-                padding-top: 50px;
-                padding-bottom: 100px;
-            }
+
 
         }
 

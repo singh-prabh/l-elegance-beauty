@@ -89,6 +89,20 @@ if(!isset($_COOKIE["accountA"])) {
             margin-right: 10px;
         }
 
+        p.form-title
+        {
+            font-family: 'Open Sans' , sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+            color: #3c3c3c;
+            margin-top: 5%;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            padding-top: 50px;
+            padding-bottom: 100px;
+        }
+
         @media (min-width: 768px) {
 
 
@@ -113,19 +127,7 @@ if(!isset($_COOKIE["accountA"])) {
                 font-size: 21px;
                 line-height: 1.4;
             }
-            p.form-title
-            {
-                font-family: 'Open Sans' , sans-serif;
-                font-size: 30px;
-                font-weight: 600;
-                text-align: center;
-                color: #3c3c3c;
-                margin-top: 5%;
-                text-transform: uppercase;
-                letter-spacing: 5px;
-                padding-top: 50px;
-                padding-bottom: 100px;
-            }
+
 
         }
     </style>
@@ -136,7 +138,7 @@ include '../Structure/AdminHeader.php'
 ?>
 <div>
     <p class="form-title">
-        Welcome to L'Elegance Beauty Admin</p>
+        Welcome to L'Elegance Beauty<br/>Admin</p>
 
 </div>
 

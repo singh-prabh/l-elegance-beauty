@@ -209,6 +209,7 @@ include '../Structure/AdminHeader.php'
                     $serviceOne->serviceID = $resArray["id_service"];
                     $serviceOne->serviceName = $resArray["serviceName"];
                     $serviceOne->serviceDescription = $resArray["serviceDescription"];
+
                     $serviceOne->servicePrice = $resArray["servicePrice"];
                     $serviceOne->categoryID = $resArray["id_category"];
                     foreach($ac as $struct) {
