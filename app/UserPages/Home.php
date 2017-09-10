@@ -169,6 +169,12 @@ include '../Structure/header.php'
 
         </div>
     </div><!-- /.row -->
+    <div style="text-align:center;">
+        <a style ="color: black;  "href="../UserManual/UserManualNormal.pdf" target=_tab>
+            User Manual Document</a> |
+        <a style ="color: black;" href="" target=_tab>
+            User Manual Video</a>
+    </div>
 
 <?php
 include '../Structure/footer.php'
