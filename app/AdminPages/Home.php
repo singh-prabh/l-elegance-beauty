@@ -167,10 +167,7 @@ include '../Structure/AdminHeader.php'
     </div><!-- /.row -->
     <div style="text-align:center;">
         <a style ="color: black;  "href="../UserManual/UserManualAdmin.pdf" target=_tab>
-            User Manual Document</a> |
-        <a style ="color: black;" href="" target=_tab>
-            User Manual Video
-        </a>
+            User Manual Document</a>
     </div>
 
     <?php
