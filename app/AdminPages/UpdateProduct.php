@@ -256,7 +256,7 @@ include '../Structure/AdminHeader.php'
                             <label for="price" class="col-sm-3 control-label">
                                 Product Price (ZAR)</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $One->itemPrice?>" required>
+                                <input type="number" min="0" step=".01" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $One->itemPrice?>" required>
                             </div>
                         </div>
                         <div class="form-group">

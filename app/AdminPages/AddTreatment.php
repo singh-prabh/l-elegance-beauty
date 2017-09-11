@@ -176,7 +176,7 @@ include '../Structure/AdminHeader.php'
                             <label for="price" class="col-sm-3 control-label">
                                 Treatment Price (ZAR)</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Price"  required>
+                                <input type="number" min="0" step=".01" class="form-control" id="price" name="price" placeholder="Price"  required>
                             </div>
                         </div>
                         <div class="form-group last">
