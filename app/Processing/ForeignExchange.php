@@ -1,8 +1,5 @@
 <?php
 
-// fx.php - PHP Code to convert currencies using Yahoo's currency conversion service.
-// by Adam Pierce <adam@doctort.org> 22-Oct-2008
-// This code is public domain.
 
 class ForeignExchange
 {
