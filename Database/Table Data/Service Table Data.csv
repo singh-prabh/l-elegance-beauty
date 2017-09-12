@@ -1,0 +1,46 @@
+"id_service";"serviceName";"serviceDescription";"servicePrice";"id_category"
+3;"Teenage Facial";"RVB skin care products, Brow and Lip wax, Bro";300.0;3
+4;"Holistic Purifying Facial";"RVB skin care products, Brow and Lip wax, Bro";440.0;3
+5;"Holistic Hydrating Facial";"RVB skin care products, Brow and Lip wax, Bro";440.0;3
+6;"Holistic Calming Facial";"RVB skin care products, Brow and Lip wax, Bro";440.0;3
+7;"DTP Facial";"RVB skin care products, Brow and Lip wax, Bro";500.0;3
+8;"Eylashes Tinting";"";75.0;4
+9;"Eyebrows Tinting and Shaping";"";55.0;4
+10;"Lashes & Brows Tinting";"";120.0;4
+11;"Full leg and Bikini Wax";"";275.0;5
+12;"Full leg wax";"";220.0;5
+13;"Upper leg and Bikini wax";"";190.0;5
+14;"Half Leg wax";"";165.0;5
+15;"Arm wax";"";140.0;5
+16;"Bikini wax";"";110.0;5
+17;"Brazilian wax";"";180.0;5
+18;"Full Bikini wax";"";250.0;5
+19;"Face wax";"";140.0;5
+20;"Underarm wax";"";75.0;5
+21;"Feet and Toes";"";70.0;5
+22;"Lip or Chin or Brow";"price per treatment";55.0;5
+23;"Combo:Half Leg, Underarm, Bikini";"";310.0;5
+24;"Combo:Full Leg, Underarm, Bikini";"";330.0;5
+25;"File & Cuticle care and Paint";"";100.0;6
+26;"Manicure";"";200.0;6
+27;"Deluxe Manicure";"";230.0;6
+28;"Half Pedicure";"";140.0;6
+29;"Pedicure";"";240.0;6
+30;"Deluxe Pedicure";"";290.0;6
+31;"Advanced Pedicure";"";350.0;6
+32;"Gel Soak Off";"";90.0;6
+33;"Soak Off & mini mani/pedi";"";150.0;6
+34;"Gel Overlay on nails";"Gel Polish";180.0;6
+35;"Gel Overlay on nails";"Bio Sculpture";250.0;6
+36;"French Gel Overlay";"";250.0;6
+37;"Gel Overlay with manicure";"";350.0;6
+38;"Gel Overlay on toes";"";200.0;6
+39;"Gel overlay with pedicure";"";400.0;6
+40;"Full Body Swedish Massage";"80min";420.0;7
+41;"Full Body Aromatherapy Massage";"80min";380.0;7
+42;"Back and Neck Massage";"30min";240.0;7
+43;"Indian Head Massage";"30min";220.0;7
+44;"Day Make up";"";280.0;8
+45;"Evening Make up";"";340.0;8
+46;"Bridal Make up ";"Trial included";620.0;8
+47;"Make up lesson";"90min";480.0;8
